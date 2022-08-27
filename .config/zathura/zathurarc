@@ -1,0 +1,5 @@
+set selection-clipboard clipboard
+set adjust-open "best-fit"
+
+map <C-i> recolor
+map <C-c> feedkeys ":exec make <Return>"
