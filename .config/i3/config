@@ -323,7 +323,7 @@ exec --no-startup-id compton
 # No sleep
 exec --no-starup-id xset dpms 0 0 2000
 
-exec --no-startup-id setxkbmap -option caps:swapescape
+exec_always --no-startup-id setxkbmap -option caps:swapescape
 
 # Nvidia fix
 exec --no-startup-id sudo systemctl enable nvidia-suspend.service
