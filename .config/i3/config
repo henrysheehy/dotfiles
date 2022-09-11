@@ -235,7 +235,7 @@ gaps outer 20
 smart_gaps on
 
 # Wallpaper
-exec_always --no-startup-id nitrogen --random --set-scaled ~/Pictures/Wallpaper/
+exec_always --no-startup-id nitrogen --random --set-scaled ~/.wallpaper
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
