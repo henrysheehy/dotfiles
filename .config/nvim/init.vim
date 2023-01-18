@@ -34,7 +34,7 @@ let g:ycm_key_list_select_completion = ['<tab>']
 let g:ycm_key_list_previous_completion = ['<S-tab>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist={'unite': 1}
-let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 4
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " VimTex
@@ -47,7 +47,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Snippets
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
-let g:UltiSnipsExpandTrigger = '<C-l'
+let g:UltiSnipsExpandTrigger = '<C-l>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
@@ -110,3 +110,7 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
+
+nnoremap <C-x> :call RangerExplorer()<CR>
+nnoremap <C-w> :w<CR>:call UltiSnips#RefreshSnippets()<CR>:YcmRestartServer<CR>
+nnoremap <C-u> :UltiSnipsEdit<CR>

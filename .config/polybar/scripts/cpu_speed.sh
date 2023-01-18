@@ -3,10 +3,10 @@ case "$1" in
     --toggle)
         governor=$(cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor | sed '2,$d')
         if [[ $governor == "powersave" ]] ; then
-            echo `cpupower frequency-set -g performance`
+            echo `sudo cpupower frequency-set -g performance`
         fi
         if [[ $governor == "performance" ]] ; then
-            echo `cpupower frequency-set -g powersave`
+            echo `sudo cpupower frequency-set -g powersave`
         fi
         governor=$(cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor | sed '2,$d')
         notify-send "CPU: $governor" -t 5000

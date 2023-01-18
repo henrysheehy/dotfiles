@@ -238,6 +238,7 @@ smart_gaps on
 exec_always --no-startup-id nitrogen --random --set-scaled ~/.wallpaper
 
 # Polybar
+exec --no-startup-id i3-agenda -c $HOME/.i3agenda/credentials.json 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bar {
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -324,6 +325,8 @@ exec --no-startup-id compton
 exec --no-starup-id xset dpms 0 0 2000
 
 exec_always --no-startup-id setxkbmap -option caps:swapescape
+
+exec_always --no-startup-id caffeine
 
 # Nvidia fix
 exec --no-startup-id sudo systemctl enable nvidia-suspend.service
