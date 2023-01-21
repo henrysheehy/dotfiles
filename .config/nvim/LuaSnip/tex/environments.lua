@@ -83,50 +83,6 @@ return
       ),
       { condition = line_begin }
     ),
-    -- -- EQUATION
-    -- s({trig="nn", snippetType="autosnippet"},
-    --   fmta(
-    --     [[
-    --     \begin{equation*}
-    --         <>
-    --     \end{equation*}
-    --   ]],
-    --     {
-    --       i(1),
-    --     }
-    --   ),
-    --   { condition = line_begin }
-    -- ),
-    -- -- SPLIT EQUATION
-    -- s({trig="ss", snippetType="autosnippet"},
-    --   fmta(
-    --     [[
-    --     \begin{equation*}
-    --         \begin{split}
-    --             <>
-    --         \end{split}
-    --     \end{equation*}
-    --   ]],
-    --     {
-    --       d(1, get_visual),
-    --     }
-    --   ),
-    --   { condition = line_begin }
-    -- ),
-    -- -- ALIGN
-    -- s({trig="all", snippetType="autosnippet"},
-    --   fmta(
-    --     [[
-    --     \begin{align*}
-    --         <>
-    --     \end{align*}
-    --   ]],
-    --     {
-    --       i(1),
-    --     }
-    --   ),
-    --   {condition = line_begin}
-    -- ),
     -- ITEMIZE
     s({trig="itt", snippetType="autosnippet"},
       fmta(
@@ -154,24 +110,6 @@ return
         }
       )
     ),
-    -- INLINE MATH
-    s({trig = "([^%a])$", regTrig = true, wordTrig = false, snippetType="autosnippet"},
-      fmta(
-        "<>$<>$<>",
-        {
-          f( function(_, snip) return snip.captures[1] end ),
-          d(1, get_visual),
-          i(0),
-        }
-      )
-    ),
-    -- -- INLINE MATH ON NEW LINE
-    -- s({trig = "^mm", regTrig = true, wordTrig = false, snippetType="autosnippet"},
-    --   fmta(
-    --     "$<>$",
--- {
-    --       i(1),
-    --     })),
     -- FIGURE
     s({trig = "fig"},
       fmta(

@@ -11,6 +11,12 @@ local tex = {}
 tex.in_mathzone = function() return vim.fn['vimtex#syntax#in_mathzone']() == 1 end
 tex.in_text = function() return not tex.in_mathzone() end
 
+_G.if_char_insert_space = function ()
+  if string.find(vim.v.char, "%a") then
+    vim.v.char = " " .. vim.v.char
+  end
+end
+
 -- Return snippet tables
 return
 {
@@ -118,6 +124,19 @@ return
       {
         f( function(_, snip) return snip.captures[1] end ),
         t("-1")
+      }
+    ),
+    {condition = tex.in_mathzone}
+  ),
+  -- SUBSCRIPT SHORTCUT
+  s({trig = '_([%a])([%a])', wordTrig = false, regTrig = true, snippetType="autosnippet"},
+    fmta(
+      "_\\text{<><><>}<>",
+      {
+        f( function(_, snip) return snip.captures[1] end ),
+        f( function(_, snip) return snip.captures[2] end ),
+        i(1),
+        i(0)
       }
     ),
     {condition = tex.in_mathzone}
@@ -555,4 +574,20 @@ return
       t("\\times "),
     }
   ),
-}
+  -- All - Insert space when the next character after snippet is a letter
+  s("mk", {
+    t("$"), i(1), t("$")
+  },{
+    callbacks = {
+      -- index `-1` means the callback is on the snippet as a whole
+      [-1] = {
+        [events.leave] = function ()
+          vim.cmd([[
+            autocmd InsertCharPre <buffer> ++once lua _G.if_char_insert_space()
+          ]])
+        end
+      }
+    }
+  }
+  ),
+} 
