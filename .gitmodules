@@ -1,3 +1,0 @@
-[submodule ".config/i3/i3spotifystatus"]
-	path = .config/i3/i3spotifystatus
-	url = https://github.com/rpieja/i3spotifystatus
