@@ -326,6 +326,8 @@ exec --no-startup-id compton
 
 exec_always --no-startup-id setxkbmap -option -option 'caps:swapescape,lv3:alt_switch,grp:rwin_toggle' -layout 'gb,ru' -variant 'intl,phonetic_winkeys'
 
+exec --no-startup-id fcitx
+
 # Prevents screen-saver and sleep during activity
 exec_always --no-startup-id caffeine
 
