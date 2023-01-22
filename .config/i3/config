@@ -68,7 +68,7 @@ exec --no-startup-id cbatticon
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 30 -locker blurlock
+exec --no-startup-id xautolock -time 15 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 # Start Applications
@@ -151,9 +151,9 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # no screensaver
-exec --no-startup-id xset s off
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s noblank
+# exec --no-startup-id xset s off
+# exec --no-startup-id xset -dpms
+# exec --no-startup-id xset s noblank
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -324,7 +324,7 @@ exec --no-startup-id compton
 # # No sleep
 # exec --no-starup-id xset dpms 0 0 2000
 
-exec_always --no-startup-id setxkbmap -option cap:swapescape,grp:switch,grp:alt_shift_toggle,grp_led:scroll,compose:menu -layout 'gb,ru' -variant 'intl,phonetic_winkeys'
+exec_always --no-startup-id setxkbmap -option -option 'caps:swapescape,lv3:alt_switch,grp:rwin_toggle' -layout 'gb,ru' -variant 'intl,phonetic_winkeys'
 
 # Prevents screen-saver and sleep during activity
 exec_always --no-startup-id caffeine

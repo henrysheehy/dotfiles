@@ -22,6 +22,14 @@ local function part(fn, ...)
 	return function() return fn(unpack(args)) end
 end
 
+local get_visual = function(args, parent)
+  if (#parent.snippet.env.select_raw > 0) then
+    return sn(nil, i(1, parent.snippet.env.select_raw))
+  else
+    return sn(nil, i(1))
+  end
+end
+
 -- This makes creation of pair-type snippets easier.
 local function pair(pair_begin, pair_end, expand_func, ...)
 	-- triggerd by opening part of pair, wordTrig=false to trigger anywhere.

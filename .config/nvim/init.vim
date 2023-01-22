@@ -40,9 +40,8 @@ call vundle#end()
 " YCM
 "so that you don’t have to add .ycm_extra_conf.py in every directory where you run vim.
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
-let g:ycm_key_list_select_completion = ['<C-j>']
-let g:ycm_key_list_previous_completion = ['<C-k>']
-let g:SuperTabDefaultCompletionType = '<C-j>'
+let g:ycm_key_list_select_completion = ['<Tab>']
+let g:ycm_key_list_previous_completion = ['<S-Tab>']
 let g:ycm_autoclose_preview_window_after_completion = 4
 let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 4
