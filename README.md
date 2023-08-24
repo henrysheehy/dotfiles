@@ -6,9 +6,8 @@ not already on Arch --is to install [Manjaro i3](https://manjaro.org/download/).
 Once that is up and working, then clone my dotfiles to 
 your home directory.
 
-## AUR backup
-Run `INSTAll.sh` to install all my programmes from 
-the AUR.
+## AUR and Python backup
+Run `INSTALL.sh` to install my programmes from the [Arch Linux User Repository](https://aur.archlinux.org/) and [Python Package Index](https://pypi.org/project/pip/)
 
 ### What's in here? 
 - Alacritty is a terminal emulator
@@ -24,7 +23,9 @@ arrow keys when ctrl is held simultaneously
 
 ## Keyboard
 In order to use my keyboard (English, Greek, Chinese 
-(Pinyin), Russian (phonetic), please run `keyboard.sh`.
+(Pinyin), Russian (phonetic), please run `keyboard.sh`
+for the first time, and if the .keyboard configuration
+is modified.
 
 To use the languages
 - Hold left-alt for Greek via XKB.
