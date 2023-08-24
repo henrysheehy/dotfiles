@@ -1,3 +1,7 @@
+    My dotfiles for configuring Arch Linux
+    Copyright (C) 2023 Henry Joseph Sheehy
+
+
 # My dot files
 These are my dotfiles for my configuration for my
 [Arch](https://archlinux.org/) distribution. 
