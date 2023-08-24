@@ -1,6 +1,7 @@
-# My dot files
-These are my dotfiles for my configuration for my
-[Arch](https://archlinux.org/) distribution. 
+# .files
+These are my dotfiles for configuring the
+[Arch Linux distribution](https://archlinux.org/). 
+
 The most straightforward manner to implement them --if you're
 not already on Arch --is to install [Manjaro i3](https://manjaro.org/download/).
 Once that is up and working, then clone my dotfiles to 
@@ -36,5 +37,6 @@ To use the languages
 - Fix autokey for input areas, such as dmenu
 - Fix [inkscape-shortcut-manager](https://github.com/gillescastel/inkscape-shortcut-manager) bugs and push it the AUR as a package.
 
+*** 
     My dotfiles for configuring Arch Linux
     Copyright (C) 2023 Henry Joseph Sheehy
