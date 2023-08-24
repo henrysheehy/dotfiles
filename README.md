@@ -1,7 +1,3 @@
-    My dotfiles for configuring Arch Linux
-    Copyright (C) 2023 Henry Joseph Sheehy
-
-
 # My dot files
 These are my dotfiles for my configuration for my
 [Arch](https://archlinux.org/) distribution. 
@@ -39,3 +35,6 @@ To use the languages
 ## To-do
 - Fix autokey for input areas, such as dmenu
 - Fix [inkscape-shortcut-manager](https://github.com/gillescastel/inkscape-shortcut-manager) bugs and push it the AUR as a package.
+
+    My dotfiles for configuring Arch Linux
+    Copyright (C) 2023 Henry Joseph Sheehy
