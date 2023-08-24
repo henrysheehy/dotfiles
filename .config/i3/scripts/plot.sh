@@ -1,5 +1,5 @@
-#!/usr/bin/bash
-if `bash ~/.config/i3/scripts/ws_check.sh Plotting`
+#!/usr/bin/sh
+if `sh ~/.config/i3/scripts/ws_check.sh Plotting`
 then
     :
 else

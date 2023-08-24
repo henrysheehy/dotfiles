@@ -1,0 +1,9 @@
+ytick.color : "black"
+xtick.color: "black"
+axes.labelcolor : "black"
+axes.edgecolor : "black"
+text.usetex : True
+text.latex.preamble : \usepackage{amsmath} 
+font.family : "serif",
+font.serif : ["Computer Modern Serif"]}
+patch.linewidth : 1.5

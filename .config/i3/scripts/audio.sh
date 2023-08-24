@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Script to send current volume notification to dunstify 
 # need depencies pamixer, dunstify and canberra-gtk-play for sound

@@ -42,27 +42,34 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-bindkey -v '^[[3~' delete-char
+bindkey '^[[1;5B' expand-or-complete
+bindkey '^[[1;5A' reverse-menu-complete
+bindkey -M menuselect '^[[D' vi-backward-char
+bindkey -M menuselect '^[[1;5D' vi-up-line-or-history
+bindkey -M menuselect '^[[C' vi-forward-char
+bindkey -M menuselect '^[[1;5C' vi-down-line-or-history
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+# bindkey 'h' vi-backward-char
+# bindkey 'k' vi-up-line-or-history
+# bindkey 'l' forward-word
+# bindkey 'j' vi-down-line-or-history
 
 # Use lf to switch directories and bind it to ctrl-o
-# lfcd () {
-#     tmp="$(mktemp)"
-#     lf -last-dir-path="$tmp" "$@"
-#     if [ -f "$tmp" ]; then
-#         dir="$(cat "$tmp")"
-#         rm -f "$tmp"
-#         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-#     fi
-# }
-# bindkey -s '^o' 'lfcd\n'
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
 
 # Open file
-bindkey -s '^o' 'xdg-open $(fzf) ^M'
+bindkey -s '^t' 'xdg-open $(fzf) ^M'
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -90,3 +97,115 @@ alias make-silent="make >/dev/null || make"
 #
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# mkcd and cd into it
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+       cd -P -- "$1"
+}
+
+alias gi="git init ."
+# alias gc="git commit -m"
+alias gs="git status -s"
+alias gl="git log --oneline"
+alias gd="git diff"
+alias gu="git reset HEAD~"
+alias gp="git push"
+alias gpull="git pull"
+
+alias v="nvim"
+alias y="yay -Syu --noconfirm"
+
+function ga() {
+    if [ "$1" != "" ]
+    then
+          git add "$1"
+    else
+          echo "Provide argument to 'git add'"
+    #     git commit -m update # default commit message is `update`
+    fi # closing statement of if-else block
+    git push #origin HEAD
+}
+function gc() {
+    if [ "$1" != "" ]
+    then
+          git commit -m "$1"
+    else
+          echo "Provide commit message"
+    #     git commit -m update # default commit message is `update`
+    fi # closing statement of if-else block
+    git push #origin HEAD
+}
+
+export PYTHONPATH=~/Private/texts/python:~/Private/projects/PythU
+export OPENER='rifle'
+
+function zle-line-init {
+    marking=0
+}
+zle -N zle-line-init
+
+function select-char-right {
+    if (( $marking != 1 ))
+    then
+        marking=1
+        zle set-mark-command
+    fi
+    zle .forward-char
+}
+zle -N select-char-right
+
+function select-char-left {
+    if (( $marking != 1 ))
+    then
+        marking=1
+        zle set-mark-command
+    fi
+    zle .backward-char
+}
+zle -N select-char-left
+
+function forward-char {
+    if (( $marking == 1 ))
+    then
+        marking=0
+        NUMERIC=-1 zle set-mark-command
+    fi
+    zle .forward-char
+}
+zle -N forward-char
+
+function backward-char {
+    if (( $marking == 1 ))
+    then
+        marking=0
+        NUMERIC=-1 zle set-mark-command
+    fi
+    zle .backward-char
+}
+zle -N backward-char
+
+function delete-char {
+    if (( $marking == 1 ))
+    then
+        zle kill-region
+        marking=0
+    else
+        zle .delete-char
+    fi
+}
+zle -N delete-char
+
+# bindkey ';6D' select-word-left ## not working yet
+# bindkey ';6C' select-word-right ## not working yet
+# bindkey ';2D' select-char-left   # assuming xterm
+# bindkey ';2C' select-char-right  # assuming xterm
+
+bindkey '^[[D' backward-char
+bindkey '^[[C' forward-char
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^?' backward-delete-char
+bindkey '^[[3~' delete-char
+bindkey '^H' backward-kill-word
+bindkey '^[[3;2~' kill-word

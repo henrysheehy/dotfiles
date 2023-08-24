@@ -1,5 +1,5 @@
-#!/user/bin/bash
-if `bash ~/.config/i3/scripts/ws_check.sh Config`
+#!/user/bin/sh
+if `sh ~/.config/i3/scripts/ws_check.sh Config`
 then
     :
 else

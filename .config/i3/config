@@ -73,7 +73,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+# bindsym $mod+F2 exec palemoon
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
@@ -88,7 +88,7 @@ bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 
 bindsym $mod+Return exec alacritty
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
@@ -230,12 +230,13 @@ floating_modifier $mod
 
 # Gaps
 for_window [class="^.*"] border pixel 0
-gaps inner 40 
-gaps outer 20 
-smart_gaps on
+gaps inner 20 
+gaps outer 60 
+# smart_gaps on
 
-# Wallpaper
-exec_always --no-startup-id nitrogen --random --set-scaled ~/.wallpaper
+# Screen
+exec --no-startup-id autorandr
+exec --no-startup-id xrandr --output HDMI-0 --primary --mode 3840x2160 --rate 60.00 --output DP-0 --mode 3840x2160 --rate 60.00 --right-of HDMI-0
 
 # Polybar
 exec --no-startup-id i3-agenda -c $HOME/.i3agenda/credentials.json 
@@ -246,7 +247,6 @@ bar {
 
     status_command i3status | ~/.config/i3/i3spotifystatus/pystatus.py
 }
-
 
 # Lock
 # bindsym $mod+l exec --no-startup-id blurlock
@@ -284,11 +284,19 @@ bindsym $mod+b workspace back_and_forth
 exec --no-startup-id xrandr --dpi 192
 
 # Ranger shortcut
-bindsym $mod+r exec --no-startup-id ~/.config/i3/scripts/ranger.sh
+bindsym $mod+r exec --no-startup-id alacritty -e ranger &
+
+## Ranger luasnips location
+bindsym $mod+v exec --no-startup-id alacritty -e ranger ~/.config/nvim/LuaSnip &
+## Ranger projects location
+bindsym $mod+p exec --no-startup-id alacritty -e ranger ~/Private/projects &
 
 # Default Spotify workspace 
 for_window [class="Spotify"] move container to workspace number 10 $ws10
-bindsym $mod+0 workspace 10 $ws10; exec --no-startup-id [ $(pgrep spotify | wc -l) = 0 ] && exec bash ~/.config/i3/scripts/spotify.sh &
+bindsym $mod+0 workspace 10 $ws10; exec --no-startup-id [ $(pgrep spotify | wc -l) = 0 ] && exec bash ~/.config/i3/scripts/spotify.sh &; ; [class="Spotify"] focus
+
+# Inkscape
+for_window [title="inkscape-popup"] floating enable
 
 # Web
 exec --no-startup-id i3-msg workspace number 1 $ws1; exec bash ~/.config/i3/scripts/web.sh &
@@ -319,14 +327,18 @@ bindsym $mod+8 workspace number 8 $ws8; exec --no-startup-id bash ~/.config/i3/s
 bindsym $mod+9 workspace number 9 $ws9; exec --no-startup-id bash ~/.config/i3/scripts/messaging.sh
 
 # Opacity
-exec --no-startup-id compton
+exec --no-startup-id picom
 
 # # No sleep
 # exec --no-starup-id xset dpms 0 0 2000
 
-exec_always --no-startup-id setxkbmap -option -option 'caps:swapescape,lv3:alt_switch,grp:rwin_toggle' -layout 'gb,ru' -variant 'intl,phonetic_winkeys'
+exec --no-startup-id setxkbmap -option 'lv3:alt_switch,grp:rwin_toggle' -layout 'user,ru' -variant 'intl,phonetic_winkeys'
+# exec --no-startup-id systemctl enable udevmon; exec --no-startup-id systemctl start udevmon
+# bindsym $mod+m exec --no-startup-id bash ~/.config/i3/scripts/keyboard.sh
 
-exec --no-startup-id fcitx
+# exec_always --no-startup-id setxkbmap -layout 'dvorak,math' -variant ',basic'
+
+exec --no-startup-id fcitx5 -d
 
 # Prevents screen-saver and sleep during activity
 exec_always --no-startup-id caffeine
@@ -340,4 +352,20 @@ exec --no-startup-id sudo systemctl enable nvidia-suspend.service
 
 # exec --no-starup-id sudo systemctl disable nvidia-suspend.service
 # exec --no-starup-id sudo systemctl disable nvidia-hibernate.service
-# exec --no-starup-id sudo systemctl disable nvidia-resume.service
+
+bindsym $mod+Escape exec "i3-instant-layout --list | rofi -dmenu -i | i3-instant-layout - exec --no-starup-id sudo systemctl disable nvidia-resume.service
+exec_always --no-startup-id thunar --daemon
+
+# Zotero
+# for_window [class="Zotero"] focus
+bindsym $mod+z exec --no-startup-id zotero; [class="Zotero"] focus
+
+# Screenshots
+exec_always --no-startup-id flameshot
+
+# Wallpaper
+exec --no-startup-id nitrogen --restore
+exec_always --no-startup-id nitrogen --random --set-scaled ~/Wallpaper
+
+# jk-Esc and df-Tab
+exec --no-startup-id autokey-qt

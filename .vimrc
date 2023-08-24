@@ -28,7 +28,7 @@ call vundle#end()
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 
 " VimTex
-let g:tex_flavor='latex'
+let g:tex_flavor='lualatex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
@@ -77,4 +77,3 @@ function RangerExplorer()
     endif
     redraw!
 endfun
-

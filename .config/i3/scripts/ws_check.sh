@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 # check if input is in focus; if true; return ws number
 foc=`wmctrl -d | grep $1 | awk '{print $2}'`
 if [[ $foc == "*" ]]; then

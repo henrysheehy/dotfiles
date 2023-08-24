@@ -1,9 +1,0 @@
-[user]
-	email = 87094102+henryjs@users.noreply.github.com
-	name = henryjs
-[color]
-	ui = true
-[credential]
-	helper = store
-[core]
-	editor = nvim
