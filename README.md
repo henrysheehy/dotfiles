@@ -11,8 +11,11 @@ your home directory.
 
 Start your terminal --on i3, the shortcut is `<mod+CR>` i.e. your mod key
 (usually left windows key) + enter, simultaneously. 
+
 Next, enter these commands:
 ```
+yay -S git
+y
 cd
 git init
 git remote add origin https://github.com/henrysheehy/dotfiles.git
