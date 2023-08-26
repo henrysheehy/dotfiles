@@ -1,6 +1,9 @@
 # .files
 These are my dotfiles for configuring the
 [Arch Linux distribution](https://archlinux.org/). 
+The dot files configure the desktop environment, my terminal theme and 
+shortkeys, my keyboard settings, my LaTeX write up workflow, and many
+other useful settings.
 
 The most straightforward manner to implement them --if you're
 not already on Arch --is to install [Manjaro i3](https://manjaro.org/download/).
@@ -13,14 +16,23 @@ Start your terminal --on i3, the shortcut is `<mod+CR>` i.e. your mod key
 (usually left windows key) + enter, simultaneously. 
 
 Next, enter these commands:
+
 ```
 yay -S git
 y
 cd
 git init
 git remote add origin https://github.com/henrysheehy/dotfiles.git
-git pull
+git pull origin master
 ```
+
+1. The first command installs git, a version control system i.e. for
+systematically sharing work; the second command confirms installation.
+2. `cd` navigates to home directory, wherein we want to install our 
+dot files.
+3. Initialise the git repository.
+4. Add my URL
+5. Pull the branch i.e. download the files
 
 ## AUR and Python backup
 Run `INSTALL.sh` to install my programmes from the [Arch Linux User Repository](https://aur.archlinux.org/) and [Python Package Index](https://pypi.org/project/pip/)
