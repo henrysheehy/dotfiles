@@ -10,7 +10,9 @@ not already on Arch --is to install [Manjaro i3](https://manjaro.org/download/).
 Once that is up and working, then clone my dotfiles to 
 your home directory.
 
-## Instructions to clone
+## Instructions
+
+### Cloning the repository
 
 Start your terminal --on i3, the shortcut is `<mod+CR>` i.e. your mod key
 (usually left windows key) + enter, simultaneously. 
@@ -34,10 +36,10 @@ dot files.
 4. Add my URL
 5. Pull the branch i.e. download the files
 
-## AUR and Python backup
+### Install my programmes
 Run `INSTALL.sh` to install my programmes from the [Arch Linux User Repository](https://aur.archlinux.org/) and [Python Package Index](https://pypi.org/project/pip/)
 
-### What's in here? 
+#### What's in here? 
 - Alacritty is a terminal emulator
 - Autokey with my dotfiles transforms `hjkl` to arrow keys, or shift
 arrow keys when ctrl is held simultaneously
@@ -49,7 +51,7 @@ arrow keys when ctrl is held simultaneously
 - [Inkscape-LaTeX integration](https://github.com/gillescastel/inkscape-figures) by [Gilles Catel ✝2022](https://castel.dev/)
 - Luavim built up from a foundation of [dotfiles](https://github.com/ejmastnak/dotfiles/) by [Elijan J. Mastnak](https://www.ejmastnak.com/)
 
-## Keyboard
+### Keyboard
 In order to use my keyboard (English, Greek, Chinese 
 (Pinyin), Russian (phonetic), please run `keyboard.sh`
 for the first time, and if the .keyboard configuration
