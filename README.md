@@ -7,6 +7,18 @@ not already on Arch --is to install [Manjaro i3](https://manjaro.org/download/).
 Once that is up and working, then clone my dotfiles to 
 your home directory.
 
+## Instructions to clone
+
+Start your terminal --on i3, the shortcut is `<mod+CR>` i.e. your mod key
+(usually left windows key) + enter, simultaneously. 
+Next, enter these commands:
+```
+cd
+git init
+git remote add origin https://github.com/henrysheehy/dotfiles.git
+git pull
+```
+
 ## AUR and Python backup
 Run `INSTALL.sh` to install my programmes from the [Arch Linux User Repository](https://aur.archlinux.org/) and [Python Package Index](https://pypi.org/project/pip/)
 
