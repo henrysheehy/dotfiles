@@ -252,7 +252,7 @@ vim.keymap.set('n', '<Leader>l', '<Cmd>lua require("luasnip.loaders.from_lua").l
 -- vim.keymap.set('', '<Leader>r', '<Cmd>Ranger<CR>')
 
 -- Open new ranger window in CWD
-vim.keymap.set('', '<Leader>r', '<Cmd>:silent !alacritty -e ranger "$(dirname %)" &<CR>')
+-- vim.keymap.set('', '<Leader>r', '<Cmd>:silent !alacritty -e ranger "$(dirname %)" &<CR>')
 
 -- Navigation
 vim.keymap.set('', '<Shift-Down>', '<S-Down>')

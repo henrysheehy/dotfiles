@@ -209,3 +209,5 @@ bindkey '^?' backward-delete-char
 bindkey '^[[3~' delete-char
 bindkey '^H' backward-kill-word
 bindkey '^[[3;2~' kill-word
+
+bindkey '^@' clear-screen
