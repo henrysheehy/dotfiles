@@ -29,10 +29,12 @@ vim.keymap.set('', '<C-D>', '<C-D>zz')
 vim.keymap.set('', '<C-U>', '<C-U>zz')
 
 -- Mappings for faster split window navigation
-vim.keymap.set('', '<C-h>', '<C-w>h')
-vim.keymap.set('', '<C-j>', '<C-w>j')
-vim.keymap.set('', '<C-k>', '<C-w>k')
-vim.keymap.set('', '<C-l>', '<C-w>l')
+-- vim.keymap.set('', '<C-h>', '<C-w>h')
+-- vim.keymap.set('', '<C-j>', '<C-w>j')
+-- vim.keymap.set('', '<C-k>', '<C-w>k')
+-- vim.keymap.set('', '<C-l>', '<C-w>l')
+vim.keymap.set('', '<tab>', '<C-w>')
+vim.keymap.set('', '<tab><tab>', '<C-w><C-w>')
 
 -- Mappings for navigating buffers
 vim.keymap.set('', '<Leader>b', '<Cmd>bnext<CR>')
