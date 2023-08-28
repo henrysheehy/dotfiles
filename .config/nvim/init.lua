@@ -12,8 +12,8 @@ vim.opt.autowriteall = true   -- write current buffer when moving buffers
 vim.opt.wrap         = true   -- wrap long lines
 vim.opt.linebreak    = true   -- break lines at words
 vim.opt.signcolumn   = "no"   -- disable LSP diagnostic symbols in left column
-vim.g.loaded_netrw       = 1 -- disable netrw
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw       = 1 -- disable netrw
+-- vim.g.loaded_netrwPlugin = 1
 -- vim.g.ranger_map_keys = 0 --disable <Leader>f :Ranger<CR>
 vim.g.NERDTreeHijackNetrw = 0
 vim.g.ranger_replace_netrw = 1 --open ranger when vim open a directory
@@ -26,16 +26,16 @@ if vim.fn.has('termguicolors') == 1 then
 end
 
 -- OS detection
-if vim.fn.exists("g:os_current") == 0 then
-  if vim.fn.system('uname -s') == "Linux\n" then
-    vim.g.os_current = "Linux"
-  elseif vim.fn.system('uname -s') == "Darwin\n" then
-    vim.g.os_current = "Darwin"
-  else
-    print("Error: the current operating system won't support all of my Vim configurations.")
-    vim.g.os_current = "Other"
-  end
-end
+-- if vim.fn.exists("g:os_current") == 0 then
+--   if vim.fn.system('uname -s') == "Linux\n" then
+--     vim.g.os_current = "Linux"
+--   elseif vim.fn.system('uname -s') == "Darwin\n" then
+--     vim.g.os_current = "Darwin"
+--   else
+--     print("Error: the current operating system won't support all of my Vim configurations.")
+--     vim.g.os_current = "Other"
+--   end
+-- end
 
 if vim.g.os_current == "Linux" then
   vim.g.python3_host_prog = "/usr/bin/python3"
@@ -53,7 +53,9 @@ Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-plug'
 Plug 'shaunsingh/nord.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'ggandor/lightspeed.nvim'
+Plug 'ggandor/leap.nvim'
+Plug 'ggandor/flit.nvim'
+Plug 'ggandor/leap-spooky.nvim'
 Plug 'tpope/vim-commentary'
 Plug('kylechui/nvim-surround', {tag = '*'})
 Plug 'wellle/targets.vim'
@@ -62,6 +64,8 @@ Plug 'coachshea/vim-textobj-markdown'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-repeat'
@@ -136,7 +140,8 @@ require('plugins/toggleterm')
 require('plugins/toggletasks')
 require('plugins/rooter')
 require('plugins/lualine')
-require('plugins/lightspeed')
+-- require('plugins/lightspeed')
+require('leap').add_default_mappings()
 require('plugins/LuaSnip')
 require('nvim-highlight-colors').setup {}
 -- require("mason").setup()
@@ -175,8 +180,6 @@ vim.keymap.set('n', 'K', 'kdd$')
 vim.keymap.set('n', '<C-Up>', '<Cmd>move .-2<CR>')
 vim.keymap.set('n', '<C-Down>', '<Cmd>move .+1<CR>')
 
--- Reduce pinky strain
-
 -- Move selected lines up and down
 -- See https://stackoverflow.com/questions/41084565/moving-multiple-lines-in-vim-visual-mode
 vim.cmd([[
@@ -193,11 +196,11 @@ vim.keymap.set('v', '<Leader>s', ':s/')
 vim.opt.directory:prepend(os.getenv("HOME") .. "/.config/nvim/swap//")
 
 -- Use escape to return to normal mode in a Neovim terminal
--- vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- Easier window navigation in terminals
-vim.keymap.set('t', '<C-S-Up>', '<C-\\><C-n><C-w>k')
-vim.keymap.set('t', '<C-S-Down>', '<C-\\><C-n><C-w>j')
+-- vim.keymap.set('t', '<C-S-Up>', '<C-\\><C-n><C-w>k')
+-- vim.keymap.set('t', '<C-S-Down>', '<C-\\><C-n><C-w>j')
 
 -- Disable automatic comment continuation on next line
 vim.api.nvim_create_autocmd('FileType', {
@@ -225,11 +228,25 @@ vim.keymap.set('n', '<Leader>q',
   end,
   {desc = 'Write and quit if possible/applicable, force quit otherwise.'})
 
+-- Open link under cursor
+-- vim.cmd([[
+--   function! OpenURLUnderCursor()
+--     let s:uri = expand('<cWORD>')
+--     let s:uri = substitute(s:uri, '?', '\\?', '')
+--     let s:uri = shellescape(s:uri, 1)
+--     if s:uri != ''
+--       silent exec "!gio '".s:uri."'"
+--       :redraw!
+--     endif
+--   endfunction
+--   nnoremap gx :call OpenURLUnderCursor()<CR>
+--   ]])
+
 -- Save and close all buffers
 vim.keymap.set('n', '<Leader>Q', '<Cmd>wqa<CR>')
 
 -- Sort text by paragraph (useful for e.g. for Beancount files)
--- Implements https://stackoverflow.com/a/24099468
+-- Implements https://stackoverflow.com/a/24099469
 vim.api.nvim_create_user_command('SortByParagraph', ':%s/\\(.\\+\\)\\n/\\1@/ | :sort | :%s/@/\\r/g', {})
 
 -- Source my spelling configurations.
@@ -266,6 +283,9 @@ inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 ]]
 
+-- fzf
+vim.keymap.set('', '<C-b>', '<Cmd>:Buffers<CR>')
+vim.keymap.set('', '<C-s>', '<Cmd>:Files<CR>')
 
 
 -- END MISCELLANEOUS

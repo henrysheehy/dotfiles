@@ -85,5 +85,3 @@ working_directory: None
   # - { key: J,        mods: Control|Shift, chars: "\x1b[74;5u"            }
   # - { key: K,        mods: Control|Shift, chars: "\x1b[75;5u"            }
   # - { key: R,        mods: Control|Shift, chars: "\x1b[72;5u"            }
-
-
