@@ -15,8 +15,9 @@ vim.opt.signcolumn   = "no"   -- disable LSP diagnostic symbols in left column
 -- vim.g.loaded_netrw       = 1 -- disable netrw
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.ranger_map_keys = 0 --disable <Leader>f :Ranger<CR>
-vim.g.NERDTreeHijackNetrw = 0
-vim.g.ranger_replace_netrw = 1 --open ranger when vim open a directory
+-- vim.g.NERDTreeHijackNetrw = 0
+-- vim.g.ranger_replace_netrw = 1 --open ranger when vim open a directory
+vim.g.vmt_auto_update_on_save = 1 -- Toc updates
 
 vim.keymap.set('', '<Space>', '<NOP>')
 vim.g.mapleader = " "  -- set global leader key
@@ -64,8 +65,8 @@ Plug 'coachshea/vim-textobj-markdown'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+-- Plug 'junegunn/fzf'
+-- Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-repeat'
@@ -287,6 +288,7 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 vim.keymap.set('', '<C-b>', '<Cmd>:Buffers<CR>')
 vim.keymap.set('', '<C-s>', '<Cmd>:Files<CR>')
 
+-- 
 
 -- END MISCELLANEOUS
 

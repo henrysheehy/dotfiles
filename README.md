@@ -1,16 +1,37 @@
-# .files
-These are my dotfiles for configuring the
-[Arch Linux distribution](https://archlinux.org/). 
-The dot files configure the desktop environment, my terminal theme and 
-shortkeys, my keyboard settings, my LaTeX write up workflow, and many
-other useful settings.
+# Dotfiles
+My dotfiles for configuring my desktop environment, terminal theme, shortkeys, keyboard settings, LaTeX write up workflow, and many other useful settings.
 
-The most straightforward manner to implement them --if you're
-not already on Arch --is to install [Manjaro i3](https://manjaro.org/download/).
-Once that is up and working, then clone my dotfiles to 
-your home directory.
+## Table of Contents
+
+<!-- vim-markdown-toc GFM -->
+
+* [What's in here?](#whats-in-here)
+* [Instructions](#instructions)
+    * [Cloning the repository](#cloning-the-repository)
+    * [Install my programmes](#install-my-programmes)
+    * [Keyboard](#keyboard)
+* [To-do](#to-do)
+
+<!-- vim-markdown-toc -->
+
+## What's in here? 
+- Alacritty is a terminal emulator
+- Autokey with my dotfiles transforms `hjkl` to arrow keys, or shift
+arrow keys when ctrl is held simultaneously
+- Caffeine to prevent sleep during full screen
+- Fcitx language input
+- Flameshot screen grab
+- i3 and i3 polybar (personal configuration)
+- Inkscape for LaTeX figures
+- [Inkscape-LaTeX integration](https://github.com/gillescastel/inkscape-figures) by [Gilles Catel ✝2022](https://castel.dev/)
+- Luavim built up from a foundation of [dotfiles](https://github.com/ejmastnak/dotfiles/) by [Elijan J. Mastnak](https://www.ejmastnak.com/)
 
 ## Instructions
+
+The most straightforward manner to implement them --if you're
+not already on [Arch](https://archlinux.org/) --is to install [Manjaro i3](https://manjaro.org/download/).
+Once that is up and working, then clone my dotfiles to 
+your home directory.
 
 ### Cloning the repository
 
@@ -39,18 +60,6 @@ dot files.
 ### Install my programmes
 Run `INSTALL.sh` to install my programmes from the [Arch Linux User Repository](https://aur.archlinux.org/) and [Python Package Index](https://pypi.org/project/pip/)
 
-#### What's in here? 
-- Alacritty is a terminal emulator
-- Autokey with my dotfiles transforms `hjkl` to arrow keys, or shift
-arrow keys when ctrl is held simultaneously
-- Caffeine to prevent sleep during full screen
-- Fcitx language input
-- Flameshot screen grab
-- i3 and i3 polybar (personal configuration)
-- Inkscape for LaTeX figures
-- [Inkscape-LaTeX integration](https://github.com/gillescastel/inkscape-figures) by [Gilles Catel ✝2022](https://castel.dev/)
-- Luavim built up from a foundation of [dotfiles](https://github.com/ejmastnak/dotfiles/) by [Elijan J. Mastnak](https://www.ejmastnak.com/)
-
 ### Keyboard
 In order to use my keyboard (English, Greek, Chinese 
 (Pinyin), Russian (phonetic), please run `keyboard.sh`
@@ -63,8 +72,8 @@ To use the languages
 - Ctrl+spacebar for Chinese via Fcitx.
 
 ## To-do
-- Fix autokey for input areas, such as dmenu
-- Fix [inkscape-shortcut-manager](https://github.com/gillescastel/inkscape-shortcut-manager) bugs and push it the AUR as a package.
+- [ ] Fix autokey for input areas, such as dmenu
+- [ ] Fix [inkscape-shortcut-manager](https://github.com/gillescastel/inkscape-shortcut-manager) bugs and push it the AUR as a package.
 
 *** 
     My dotfiles for configuring Arch Linux
