@@ -13,6 +13,7 @@ My dotfiles for configuring my desktop environment, terminal theme, shortkeys, k
         - [Keyboard](#keyboard)
         - [Firfox plugins](#firfox-plugins)
             - [Zotero](#zotero)
+        - [Wallpaper](#wallpaper)
     - [Thank you](#thank-you)
 
 ## What's in here? 
@@ -85,6 +86,12 @@ To use the languages
 
 #### Zotero
 
+### Wallpaper
+
+Simply make a wallpaper folder `mkdir Wallpaper` in the home
+directory (`cd`, if you're not there already).
+Add your favourite pictures 😃
+To randomly cycle wallpaper, restart i3 with `mod+R`.
 
 ## Thank you
 
