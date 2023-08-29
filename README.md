@@ -13,6 +13,7 @@ My dotfiles for configuring my desktop environment, terminal theme, shortkeys, k
         - [Keyboard](#keyboard)
         - [Firfox plugins](#firfox-plugins)
             - [Zotero](#zotero)
+            - [Other plugins I recommend](#other-plugins-i-recommend)
         - [Wallpaper](#wallpaper)
     - [Thank you](#thank-you)
 
@@ -94,6 +95,11 @@ To use the languages
 
 Open Zotero using i3 with `<mod+z>`. You can now 
 add citations from Firfox to the currently open Zotero folder.
+
+#### Other plugins I recommend
+- Vimium
+- A password manager
+- Darkreader
 
 ### Wallpaper
 
