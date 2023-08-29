@@ -86,6 +86,15 @@ To use the languages
 
 #### Zotero
 
+1. [Install the Zotero connector](https://www.zotero.org/download/)
+2. Install [Better BibTex](https://retorque.re/zotero-better-bibtex/installation/)
+3. Configure shortcut for adding Zotero citation:Open `about:addons` in a Firefox tab.
+    3.1. Press the wheel
+    3.2. Zotero Connector: Ctrl+Shift+F
+
+Open Zotero using i3 with `<mod+z>`. You can now 
+add citations from Firfox to the currently open Zotero folder.
+
 ### Wallpaper
 
 Simply make a wallpaper folder `mkdir Wallpaper` in the home
