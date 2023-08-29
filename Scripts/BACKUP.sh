@@ -10,6 +10,10 @@ pacman -Qqe > "$HOME/.packages"
 cp "$HOME/.packages" "$HOME/.desktop-packages"
 sed -i '/manjaro/d' "$HOME/.packages"
 sed -i '/nvidia/d' "$HOME/.packages"
+sed -i '/headers/d' "$HOME/.packages"
+sed -i '/artwork-i3/d' "$HOME/.packages"
+sed -i '/linux/d' "$HOME/.packages"
+sed -i '/filesystem/d' "$HOME/.packages"
 cat "$HOME/.packages" | vim -c "%j|wq" $HOME/.packages
 cat "$HOME/.packages" | vim -c "%j|wq" $HOME/.desktop-packages
 

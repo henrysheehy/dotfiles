@@ -88,7 +88,7 @@ To use the languages
 
 1. [Install the Zotero connector](https://www.zotero.org/download/)
 2. Install [Better BibTex](https://retorque.re/zotero-better-bibtex/installation/)
-3. Configure shortcut for adding Zotero citation:Open `about:addons` in a Firefox tab.
+3. Configure shortcut for adding Zotero citation:Open <about:addons> in a Firefox tab
     3.1. Press the wheel
     3.2. Zotero Connector: Ctrl+Shift+F
 
@@ -104,7 +104,7 @@ To randomly cycle wallpaper, restart i3 with `mod+R`.
 
 ## Thank you
 
-Thank you for using this [repository](https://github.com/henrysheehy/dotfiles).
+Thank you for using [this repository](https://github.com/henrysheehy/dotfiles).
 If it is helpful to you, kindly give it a star.
 
 *** 
