@@ -367,5 +367,9 @@ exec_always --no-startup-id flameshot
 exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id nitrogen --random --set-scaled ~/Wallpaper
 
-# jk-Esc and df-Tab
+# Arrow keys mapped to ctrl+hjkl
+# Ctrl-arrows mapped to ctrl+shift+hjkl
 exec --no-startup-id autokey-qt
+
+# Emojis 🦄🌈😍
+bindsym $mod+y exec "rofi -modi emoji -show emoji"
