@@ -8,6 +8,15 @@ function M.get_ISO_8601_date()
   return os.date("%Y-%m-%d")
 end
 
+function M.get_ISO_8601_time()
+  return os.date("%H:%M:%S")
+end
+
+function M.get_ISO_8601_date_time()
+  return os.date("%Y-%m-%d %H:%M:%S")
+end
+
+
 function M.get_visual(args, parent)
   if (#parent.snippet.env.SELECT_RAW > 0) then
     return sn(nil, i(1, parent.snippet.env.SELECT_RAW))

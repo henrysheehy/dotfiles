@@ -1,5 +1,7 @@
 local helpers = require('personal.luasnip-helper-funcs')
 local get_date = helpers.get_ISO_8601_date
+local get_time = helpers.get_ISO_8601_time
+local get_date_time = helpers.get_ISO_8601_date_time
 local get_visual = helpers.get_visual
 
 -- A logical OR of `line_begin` and the regTrig '[^%a]trig'
@@ -60,22 +62,31 @@ return
     --   ),
     --   {condition = line_begin_or_non_letter}
     -- ),
-    -- -- Today's date in YYYY-MM-DD (ISO 8601) format
-    -- s({trig = "iso"},
-    -- {f(get_date)}
-    -- -- {f(get_ISO_8601_date)}
-    -- ),
-    -- -- CURLY BRACES
-    -- s({trig = "fd", snippetType="autosnippet"},
-    --   fmta(
-    --     [[
-    --     {
-    --       <>
-    --     }
-    --     ]],
-    --     { d(1, get_visual) }
-    --   )
-    -- ),
+    -- CURLY BRACES
+    s({trig = "fd", snippetType="autosnippet"},
+      fmta(
+        [[
+        {
+          <>
+        }
+        ]],
+        { d(1, get_visual) }
+      )
+    ),
+    -- Today's date in YYYY-MM-DD (ISO 8601) format
+    -- {f(get_ISO_8601_date)}
+    s({trig = "iso"},
+    {f(get_date)}
+    ),
+    -- Today's time in YYYY-MM-DD HH-MM-SS (ISO 8601) format
+    s({trig = "cdt"},
+    {f(get_date_time)}
+    ),
+    -- Lorem ipsum
+    -- Today's time in YYYY-MM-DD HH-MM-SS (ISO 8601) format
+    s({trig = "ct"},
+    {f(get_time)}
+    ),
     -- Lorem ipsum
     s({trig = "lipsum"},
       fmta(

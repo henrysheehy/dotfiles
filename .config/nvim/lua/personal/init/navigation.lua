@@ -36,10 +36,13 @@ vim.keymap.set('', '<C-U>', '<C-U>zz')
 vim.keymap.set('', '<tab>', '<C-w>')
 vim.keymap.set('', '<tab><tab>', '<C-w><C-w>')
 
-vim.keymap.set('', '<Left>', '<C-w>h')
-vim.keymap.set('', '<Down>', '<C-w>j')
-vim.keymap.set('', '<Up>', '<C-w>k')
-vim.keymap.set('', '<Right>', '<C-w>l')
+vim.keymap.set('n', '<Left>', '<C-w>h')
+vim.keymap.set('n', '<Down>', '<C-w>j')
+vim.keymap.set('n', '<Up>', '<C-w>k')
+vim.keymap.set('n', '<Right>', '<C-w>l')
+
+vim.keymap.set('', '<S-Down>', '<S-tab>')
+vim.keymap.set('', '<S-Up>', '<tab>')
 
 -- Mappings for navigating buffers
 vim.keymap.set('', '<Leader>b', '<Cmd>bnext<CR>')

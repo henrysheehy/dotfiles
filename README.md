@@ -1,30 +1,14 @@
 # Dotfiles
 My dotfiles for configuring my desktop environment, terminal theme, shortkeys, keyboard settings, LaTeX write up workflow, and many other useful settings.
 
-## Table of Contents
 
-<!-- vim-markdown-toc GFM -->
-
-* [What's in here?](#whats-in-here)
-* [Instructions](#instructions)
-    * [Cloning the repository](#cloning-the-repository)
-    * [Install my programmes](#install-my-programmes)
-    * [Keyboard](#keyboard)
-* [To-do](#to-do)
-
-<!-- vim-markdown-toc -->
-
-## What's in here? 
-- Alacritty is a terminal emulator
-- Autokey with my dotfiles transforms `hjkl` to arrow keys, or shift
-arrow keys when ctrl is held simultaneously
-- Caffeine to prevent sleep during full screen
-- Fcitx language input
-- Flameshot screen grab
-- i3 and i3 polybar (personal configuration)
-- Inkscape for LaTeX figures
-- [Inkscape-LaTeX integration](https://github.com/gillescastel/inkscape-figures) by [Gilles Catel ✝2022](https://castel.dev/)
-- Luavim built up from a foundation of [dotfiles](https://github.com/ejmastnak/dotfiles/) by [Elijan J. Mastnak](https://www.ejmastnak.com/)
+- [Dotfiles](#dotfiles)
+- [Table of Contents](#table-of-contents)
+    - [Instructions](#instructions)
+        - [Cloning the repository](#cloning-the-repository)
+        - [Install my programmes](#install-my-programmes)
+        - [Keyboard](#keyboard)
+    - [To-do](#to-do)
 
 ## Instructions
 
@@ -50,15 +34,19 @@ git pull origin master
 ```
 
 1. The first command installs git, a version control system i.e. for
-systematically sharing work; the second command confirms installation.
+   systematically sharing work; the second command confirms installation.
 2. `cd` navigates to home directory, wherein we want to install our 
-dot files.
+   dot files.
 3. Initialise the git repository.
 4. Add my URL
 5. Pull the branch i.e. download the files
 
 ### Install my programmes
 Run `INSTALL.sh` to install my programmes from the [Arch Linux User Repository](https://aur.archlinux.org/) and [Python Package Index](https://pypi.org/project/pip/)
+
+#### Vim plugins
+In order to install the plugins when using Vim for the first time, 
+type `:PlugInstall`.
 
 ### Keyboard
 In order to use my keyboard (English, Greek, Chinese 

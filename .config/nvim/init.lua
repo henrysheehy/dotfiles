@@ -93,7 +93,8 @@ Plug 'VonHeikemen/lsp-zero.nvim'
 
 -- Filetype-specific
 Plug('iamcco/markdown-preview.nvim', {['do'] = 'cd app && yarn install'})
-Plug 'mzlogin/vim-markdown-toc'
+-- Plug 'mzlogin/vim-markdown-toc'
+Plug 'SidOfc/mkdx'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'lervag/vimtex'
@@ -284,11 +285,20 @@ inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 ]]
 
--- fzf
-vim.keymap.set('', '<C-b>', '<Cmd>:Buffers<CR>')
-vim.keymap.set('', '<C-s>', '<Cmd>:Files<CR>')
+-- fzf - replaced with telescope
+-- vim.keymap.set('', '<C-b>', '<Cmd>:Buffers<CR>')
+-- vim.keymap.set('', '<C-s>', '<Cmd>:Files<CR>')
 
--- 
+-- Markdown
+vim.cmd([[
+let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
+                        \ 'enter': { 'shift': 1 },
+                        \ 'links': { 'external': { 'enable': 1 } },
+                        \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
+                        \ 'fold': { 'enable': 1 } }
+let g:polyglot_disabled = ['markdown'] " for vim-polyglot users, it loads Plasticboy's markdown
+                                       " plugin which unfortunately interferes with mkdx list indentation.
+                                       ]])
 
 -- END MISCELLANEOUS
 
