@@ -1,5 +1,13 @@
 # Dotfiles
-My dotfiles for configuring my desktop environment, terminal theme, shortkeys, keyboard settings, LaTeX write up workflow, and many other useful settings.
+My dotfiles for configuring my [Arch-based](https://archlinux.org/)
+operating system to streamline 
+research and publication (to journals, website, and personal and
+collaborative notes).
+
+The dotfiles configure my desktop environment, terminal theme,
+shortkeys, keyboard language settings (Latin accents, Russian, Greek, Chinese),
+LaTeX write up workflow, with streamlined Inkscape figure drawing,
+Zotero bibliography plugins, and many other useful settings.
 
 # Table of Contents
 
@@ -11,7 +19,7 @@ My dotfiles for configuring my desktop environment, terminal theme, shortkeys, k
         - [Install my programmes](#install-my-programmes)
             - [Vim plugins](#vim-plugins)
         - [Keyboard](#keyboard)
-        - [Firfox plugins](#firfox-plugins)
+        - [Firefox plugins](#firefox-plugins)
             - [Zotero](#zotero)
             - [Other plugins I recommend](#other-plugins-i-recommend)
         - [Wallpaper](#wallpaper)
@@ -34,7 +42,7 @@ arrow keys when ctrl is held simultaneously
 
 The most straightforward manner to implement them --if you're
 not already on [Arch](https://archlinux.org/) --is to install [Manjaro i3](https://manjaro.org/download/).
-Once that is up and working, then clone my dotfiles to 
+Once that is up and running, then clone my dotfiles to 
 your home directory.
 
 ### Cloning the repository
@@ -56,11 +64,12 @@ git pull origin master
 
 1. The first command installs git, a version control system i.e. for
    systematically sharing work; the second command confirms installation.
-2. `cd` navigates to home directory, wherein we want to install our 
+2. `cd` navigates to your home directory, wherein we want to install our 
    dot files.
 3. Initialise the git repository.
-4. Add my URL
-5. Pull the branch i.e. download the files
+4. Remove conflicting files
+5. Add my repository URL
+6. Pull the branch i.e. download the files
 
 ### Install my programmes
 1. Update the local [Arch Linux User Repository (AUR)](https://aur.archlinux.org/) with
@@ -70,12 +79,15 @@ git pull origin master
 
 #### Vim plugins
 In order to install the plugins when using Vim for the first time, 
-type `:PlugInstall` in an instance of Vim open Vim by entering `v my_first_file.md`. This will create a file with the given name in your current working directory (cwd).
+Open Vim by entering `v my_first_file.md`. 
+This will create a file with the given name in your current working directory (cwd).
+Inside the Vim instance, type `:PlugInstall`.
 
 ### Keyboard
 In order to use my keyboard (English, Greek, Chinese 
-(Pinyin), Russian (phonetic), please run `keyboard.sh`
-for the first time, and if the .keyboard configuration
+(Pinyin), Russian (phonetic), please 
+execute `sh Scripts/keyboard.sh`
+for the first time, and if the .keyboard configuration file
 is modified.
 
 To use the languages
@@ -83,7 +95,7 @@ To use the languages
 - Press right-windows key for Russian via XKB.
 - Ctrl+spacebar for Chinese via Fcitx.
 
-### Firfox plugins
+### Firefox plugins
 
 #### Zotero
 
@@ -97,6 +109,7 @@ Open Zotero using i3 with `<mod+z>`. You can now
 add citations from Firfox to the currently open Zotero folder.
 
 #### Other plugins I recommend
+
 - Vimium
 - A password manager
 - Darkreader
