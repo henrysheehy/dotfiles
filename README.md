@@ -75,7 +75,7 @@ git pull origin master
 1. Update the local [Arch Linux User Repository (AUR)](https://aur.archlinux.org/) with
    `yay -Syu`.
    This will also update your programmes and kernel.
-2. Run `sh Scripts/INSTALL.sh` to install my programmes from the AUR and [Python Package Index](https://pypi.org/project/pip/)
+2. Run `sh .scripts/INSTALL.sh` to install my programmes from the AUR and [Python Package Index](https://pypi.org/project/pip/)
 
 #### Vim plugins
 In order to install the plugins when using Vim for the first time, 
@@ -86,8 +86,8 @@ Inside the Vim instance, type `:PlugInstall`.
 ### Keyboard
 In order to use my keyboard (English, Greek, Chinese 
 (Pinyin), Russian (phonetic), please 
-execute `sh Scripts/keyboard.sh`
-for the first time, and if the .keyboard configuration file
+execute `sh .scripts/keyboard.sh`
+for the first time, and if the .config/.keyboard configuration file
 is modified.
 
 To use the languages
