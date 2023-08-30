@@ -173,3 +173,4 @@ for helping me to make this installation more stable for future users
 *** 
     My dotfiles for configuring Arch Linux
     Copyright (C) 2023 Henry Joseph Sheehy
+    GNU 2.0 LICENSE
