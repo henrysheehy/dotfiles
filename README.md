@@ -166,7 +166,7 @@ If it is helpful to you, kindly give it a star.
 
 ### Guinea pigs 
 
-Thank you to Cris ([Ciprian-Cristian Vijeu](https://research.kent.ac.uk/pqm/person/ciprian-cristian-vijeu/))
+Thank you to [Cris](https://research.kent.ac.uk/pqm/person/ciprian-cristian-vijeu/))
 for helping me to make this installation more stable for future users 
 (☞ﾟヮﾟ)☞☜(ﾟヮﾟ☜)
 
