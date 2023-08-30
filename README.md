@@ -1,6 +1,6 @@
-# Dotfiles
+# Dotfiles and programmes
 My dotfiles for configuring my [Arch-based](https://archlinux.org/)
-operating system to streamline 
+operating system and the programmes I use to streamline 
 research and publication (to journals, website, and personal and
 collaborative notes).
 
@@ -11,10 +11,11 @@ Zotero bibliography plugins, and many other useful settings.
 
 # Table of Contents
 
-- [Dotfiles](#dotfiles)
+- [Dotfiles and programmes](#dotfiles-and-programmes)
 - [Table of Contents](#table-of-contents)
     - [What's in here?](#whats-in-here)
     - [Instructions](#instructions)
+        - [Installing Arch Linux](#installing-arch-linux)
         - [Cloning the repository](#cloning-the-repository)
         - [Install my programmes](#install-my-programmes)
             - [Vim plugins](#vim-plugins)
@@ -23,7 +24,12 @@ Zotero bibliography plugins, and many other useful settings.
             - [Zotero](#zotero)
             - [Other plugins I recommend](#other-plugins-i-recommend)
         - [Wallpaper](#wallpaper)
+    - [Troubleshooting](#troubleshooting)
+        - [Installing Arch](#installing-arch)
+            - [First solution](#first-solution)
+            - [Second solution](#second-solution)
     - [Thank you](#thank-you)
+        - [Guinea pig](#guinea-pig)
 
 ## What's in here? 
 - Alacritty is a terminal emulator
@@ -40,10 +46,16 @@ arrow keys when ctrl is held simultaneously
 
 ## Instructions
 
-The most straightforward manner to implement them --if you're
+The most straightforward manner to implement my configuration --if you're
 not already on [Arch](https://archlinux.org/) --is to install [Manjaro i3](https://manjaro.org/download/).
 Once that is up and running, then clone my dotfiles to 
 your home directory.
+
+### Installing Arch Linux
+
+Install Arch using the [Manjaro i3 distribution](https://manjaro.org/download/),
+following the instructions therein. 
+See [troubleshooting](#Troubleshooting) should you encounter any problems.
 
 ### Cloning the repository
 
@@ -57,7 +69,7 @@ yay -S git
 y
 cd
 git init
-rm .Xresources .bashrc .config/i3/config
+rm .bash_profile .Xresources .bashrc .config/i3/config
 git remote add origin https://github.com/henrysheehy/dotfiles.git
 git pull origin master
 ```
@@ -75,7 +87,7 @@ git pull origin master
 1. Update the local [Arch Linux User Repository (AUR)](https://aur.archlinux.org/) with
    `yay -Syu`.
    This will also update your programmes and kernel.
-2. Run `sh .scripts/INSTALL.sh` to install my programmes from the AUR and [Python Package Index](https://pypi.org/project/pip/)
+2. Run `sh .script/INSTALL.sh` to install my programmes from the AUR and [Python Package Index](https://pypi.org/project/pip/)
 
 #### Vim plugins
 In order to install the plugins when using Vim for the first time, 
@@ -86,7 +98,7 @@ Inside the Vim instance, type `:PlugInstall`.
 ### Keyboard
 In order to use my keyboard (English, Greek, Chinese 
 (Pinyin), Russian (phonetic), please 
-execute `sh .scripts/keyboard.sh`
+execute `sh .script/keyboard.sh`
 for the first time, and if the .config/.keyboard configuration file
 is modified.
 
@@ -121,10 +133,41 @@ directory (`cd`, if you're not there already).
 Add your favourite pictures 😃
 To randomly cycle wallpaper, restart i3 with `mod+R`.
 
+## Troubleshooting
+
+### Installing Arch
+
+#### First solution
+
+If you have difficulties installing Manjaro i3, attempt to install
+without connecting to the internet (to avoid unintentional kernel 
+updates).
+Once you're up and running, install the (stable arch kernel)[https://archlinux.org/packages/core/x86_64/linux-lts/].
+This kernel was written for those experiencing kernel panics on the usual install.
+Install using
+
+```bash
+yay -S linux-lts
+```
+
+Importantly, don't run `yay -Syu` before installing this kernel! We don't 
+want to update the repository or kernel before installing the stable kernel.
+
+#### Second solution
+
+If that fails, an alternative distribution which has succeeded for 
+others (thanks Cris!) is [Endeavour OS](https://endeavouros.com/download/).
+As with Manjaro, install offline, and once running, install linux-lts.
+
 ## Thank you
 
 Thank you for using [this repository](https://github.com/henrysheehy/dotfiles).
 If it is helpful to you, kindly give it a star.
+
+### Guinea pig
+
+Thank you to Cris ([Ciprian-Cristian Vijeu](https://research.kent.ac.uk/pqm/person/ciprian-cristian-vijeu/))
+for helping to make this installation more stable for future users.
 
 *** 
     My dotfiles for configuring Arch Linux
