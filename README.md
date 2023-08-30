@@ -29,7 +29,7 @@ Zotero bibliography plugins, and many other useful settings.
             - [First solution](#first-solution)
             - [Second solution](#second-solution)
     - [Thank you](#thank-you)
-        - [Guinea pig](#guinea-pig)
+        - [Guinea pigs](#guinea-pigs)
 
 ## What's in here? 
 - Alacritty is a terminal emulator
@@ -142,7 +142,7 @@ To randomly cycle wallpaper, restart i3 with `mod+R`.
 If you have difficulties installing Manjaro i3, attempt to install
 without connecting to the internet (to avoid unintentional kernel 
 updates).
-Once you're up and running, install the (stable arch kernel)[https://archlinux.org/packages/core/x86_64/linux-lts/].
+Once you're up and running, install the [stable arch kernel](https://archlinux.org/packages/core/x86_64/linux-lts/).
 This kernel was written for those experiencing kernel panics on the usual install.
 Install using
 
@@ -164,10 +164,11 @@ As with Manjaro, install offline, and once running, install linux-lts.
 Thank you for using [this repository](https://github.com/henrysheehy/dotfiles).
 If it is helpful to you, kindly give it a star.
 
-### Guinea pig
+### Guinea pigs 
 
 Thank you to Cris ([Ciprian-Cristian Vijeu](https://research.kent.ac.uk/pqm/person/ciprian-cristian-vijeu/))
-for helping to make this installation more stable for future users 😎🤙
+for helping me to make this installation more stable for future users 
+(☞ﾟヮﾟ)☞☜(ﾟヮﾟ☜)
 
 *** 
     My dotfiles for configuring Arch Linux
