@@ -167,7 +167,7 @@ If it is helpful to you, kindly give it a star.
 ### Guinea pig
 
 Thank you to Cris ([Ciprian-Cristian Vijeu](https://research.kent.ac.uk/pqm/person/ciprian-cristian-vijeu/))
-for helping to make this installation more stable for future users.
+for helping to make this installation more stable for future users 😎🤙
 
 *** 
     My dotfiles for configuring Arch Linux
