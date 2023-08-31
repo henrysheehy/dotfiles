@@ -29,7 +29,7 @@ Zotero bibliography plugins, and many other useful settings.
             - [First solution](#first-solution)
             - [Second solution](#second-solution)
     - [Thank you](#thank-you)
-        - [Guinea pigs](#guinea-pigs)
+        - [Testers](#testers)
 
 ## What's in here? 
 - Alacritty is a terminal emulator
@@ -164,10 +164,10 @@ As with Manjaro, install offline, and once running, install linux-lts.
 Thank you for using [this repository](https://github.com/henrysheehy/dotfiles).
 If it is helpful to you, kindly give it a star.
 
-### Guinea pigs 
+### Testers
 
 Thank you to [Cris](https://research.kent.ac.uk/pqm/person/ciprian-cristian-vijeu/)
-for helping me to make this installation more stable for future users 
+for testing this installation and helping to make it more stable for future users 
 (☞ﾟヮﾟ)☞☜(ﾟヮﾟ☜)
 
 *** 
