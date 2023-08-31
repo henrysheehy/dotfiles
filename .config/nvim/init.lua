@@ -26,6 +26,12 @@ if vim.fn.has('termguicolors') == 1 then
   vim.opt.termguicolors = true
 end
 
+-- Persistent undo https://www.adrian.idv.hk/2022-05-07-nvim-lua/
+-- vim.opt.undodir = vim.fn.stdpath('config') .. '/.undo'
+vim.o.undodir = '~/.config/nvim/.undo//'
+-- vim.opt.undofile 
+vim.opt.undofile = true
+
 -- OS detection
 -- if vim.fn.exists("g:os_current") == 0 then
 --   if vim.fn.system('uname -s') == "Linux\n" then
@@ -209,13 +215,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = '*',
   command = 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'
 })
-
--- Persistent undo
--- vim.opt.undodir = vim.fn.stdpath('config') .. '/.undo'
-vim.o.undodir = '~/.config/nvim/.undo//'
--- vim.opt.undofile 
-vim.opt.undofile = true
-
 
 -- Go to last loc when opening a buffer
 vim.api.nvim_create_autocmd(
