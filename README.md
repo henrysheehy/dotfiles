@@ -1,4 +1,4 @@
-# Dotfiles and programmes
+# Dotfiles and build
 My dotfiles for configuring my [Arch-based](https://archlinux.org/)
 operating system and the programmes I use to streamline 
 research and publication (to journals, website, and personal and
@@ -11,7 +11,7 @@ Zotero bibliography plugins, and many other useful settings.
 
 # Table of Contents
 
-- [Dotfiles and programmes](#dotfiles-and-programmes)
+- [Dotfiles and build](#dotfiles-and-build)
 - [Table of Contents](#table-of-contents)
     - [What's in here?](#whats-in-here)
     - [Instructions](#instructions)
