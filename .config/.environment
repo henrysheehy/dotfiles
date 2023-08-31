@@ -3,3 +3,14 @@
 
 VAULT=/vault
 DATA=/vault/Data
+PROJ=/vault/Projects
+PICS=/vault/Pictures
+NOTE=/vault/Notes
+BOOK=/vault/Books
+MUSIC=/vault/Music
+ART=/vault/Art
+DOCS=/vault/Documents
+DIST=/vault/Distro
+VIDEO=/vault/Videos
+WORKSHOPS=/vault/Workshops
+
