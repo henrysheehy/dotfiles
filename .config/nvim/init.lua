@@ -212,7 +212,10 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Persistent undo
 -- vim.opt.undodir = vim.fn.stdpath('config') .. '/.undo'
-vim.opt.undodir = '~/.config/nvim/.undo//'
+vim.o.undodir = '~/.config/nvim/.undo//'
+-- vim.opt.undofile 
+vim.opt.undofile = true
+
 
 -- Go to last loc when opening a buffer
 vim.api.nvim_create_autocmd(
