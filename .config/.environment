@@ -1,0 +1,5 @@
+# Run $HOME/.scripts/ENVIRONMENT.sh after modifying this file
+# User-defined global variables --do not remove this line
+
+VAULT=/vault
+DATA=/vault/Data
