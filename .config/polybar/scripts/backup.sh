@@ -1,9 +1,9 @@
 #!/bin/sh
 ################################################
-###### * Polybar wrapper for rsnapshot * #######
-############# Henry Joseph Sheehy ##############
-############ Copyright August 2023 #############
-############## GNU 2.0 License #################
+#      * Polybar wrapper for rsnapshot *       #
+#             Henry Joseph Sheehy              #
+#           Copyright August 2023              #
+#               GNU 2.0 License                #
 ################################################
 
 ## Initialise cache

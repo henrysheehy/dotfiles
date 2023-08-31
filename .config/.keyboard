@@ -1,4 +1,4 @@
--- Execute update.sh after making changes to the keyboard layout.
+-- Execute $HOME/.script/update.sh after making changes to the keyboard layout.
 
 partial alphanumeric_keys
 xkb_symbols "intl" {
