@@ -157,16 +157,79 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 
-set $ws2 Config
-set $ws3 Development
-set $ws4 Scripting
-set $ws5 Profiling
-set $ws6 Plotting
-set $ws7 LaTeX
-set $ws8 Notes
-set $ws9 Messaging
-set $ws10 Spotify
+set $ws1  Web
+set $ws2 󰠮 Write
+set $ws3  Snippets
+set $ws4 󱁤 Dev
+set $ws5  Note
+set $ws6  Broadcast
+set $ws7 󰽰 Music
+set $ws8 󱄯 Message
+set $ws9 󱓷 Bib
+set $ws10 󰽉 Draw
+
+# Define workspaces
+
+# Web
+exec --no-startup-id i3-msg workspace number 1 $ws1; exec bash ~/.config/i3/scripts/web.sh &
+bindsym $mod+1 workspace number 1 $ws1; exec --no-startup-id bash ~/.config/i3/scripts/web.sh &
+
+# Write
+bindsym $mod+2 workspace number 2 $ws2; exec --no-startup-id bash ~/.config/i3/scripts/write.sh &
+
+# Snippets
+bindsym $mod+3 workspace number 3 $ws3; exec --no-startup-id bash ~/.config/i3/scripts/snippets.sh &
+
+# Development
+bindsym $mod+4 workspace number 4 $ws4; exec --no-startup-id bash ~/.config/i3/scripts/dev.sh &
+
+# Note
+bindsym $mod+5 workspace number 5 $ws5; exec --no-startup-id bash ~/.config/i3/scripts/note.sh &
+
+# Broadcast
+for_window [class="Teams"] move container to workspace number 6 $ws6
+# bindsym $mod+6 workspace number 6 $ws6; 
+
+mode "Run [t]eams?" {
+
+  bindsym t mode "Teams"; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh & 
+  bindsym y mode "Teams"; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh & 
+  bindsym Y mode "Teams"; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh & 
+  
+  bindsym Escape mode "default"
+
+  bindsym Return mode "default"
+
+}
+
+bindsym $mod+6 workspace number 6 $ws6; mode "Run [t]eams?"
+
+# Default Spotify workspace 
+for_window [class="Spotify"] move container to workspace number 7 $ws7
+bindsym $mod+7 workspace 7 $ws7; exec --no-startup-id [ $(pgrep spotify | wc -l) = 0 ] && exec bash ~/.config/i3/scripts/spotify.sh &; ; [class="Spotify"] focus
+exec --no-startup-id spotify
+
+# Messaging
+for_window [class="Telegram"] move container to workspace number 8 $ws8
+for_window [class="Signal"] move container to workspace number 8 $ws8
+for_window [title="WhatsApp for Linux"] move container to workspace number 8 $ws8
+bindsym $mod+8 workspace number 8 $ws8; exec --no-startup-id bash ~/.config/i3/scripts/messaging.sh
+exec --no-startup-id telegram-desktop
+exec --no-startup-id whatsapp-for-linux
+exec --no-startup-id signal-desktop
+
+# Zotero
+for_window [class="Zotero"] move container to workspace number 9 $ws9
+bindsym $mod+9 workspace number 9 $ws9; exec --no-startup-id zotero
+bindsym $mod+z exec --no-startup-id zotero; [class="Zotero"] focus
+exec --no-startup-id zotero
+
+# Inkscape
+for_window [class="Inkscape"] move container to workspace number 10 $ws10
+for_window [title="inkscape-popup"] floating enable
+bindsym $mod+0 workspace number 10 $ws10; exec --no-startup-id bash ~/.config/i3/scripts/draw.sh
+exec --no-startup-id inkscape-figures
+exec --no-startup-id inkscape
 
 # switch to workspace
 #bindsym $mod+1 workspace number 1 $ws1 
@@ -291,46 +354,12 @@ bindsym $mod+v exec --no-startup-id alacritty -e ranger ~/.config/nvim/LuaSnip &
 ## Ranger projects location
 bindsym $mod+p exec --no-startup-id alacritty -e ranger ~/Private/projects &
 
-# Default Spotify workspace 
-for_window [class="Spotify"] move container to workspace number 10 $ws10
-bindsym $mod+0 workspace 10 $ws10; exec --no-startup-id [ $(pgrep spotify | wc -l) = 0 ] && exec bash ~/.config/i3/scripts/spotify.sh &; ; [class="Spotify"] focus
-
-# Inkscape
-for_window [title="inkscape-popup"] floating enable
-
-# Web
-exec --no-startup-id i3-msg workspace number 1 $ws1; exec bash ~/.config/i3/scripts/web.sh &
-bindsym $mod+1 workspace number 1 $ws1; exec --no-startup-id bash ~/.config/i3/scripts/web.sh &
-
-# Config 
-bindsym $mod+2 workspace number 2 $ws2; exec --no-startup-id bash ~/.config/i3/scripts/conf.sh &
-
-# Development
-bindsym $mod+3 workspace number 3 $ws3; exec --no-startup-id bash ~/.config/i3/scripts/dev.sh &
-
-# Scripting
-bindsym $mod+4 workspace number 4 $ws4; exec --no-startup-id bash ~/.config/i3/scripts/scripting.sh &
-
-# Profiling
-bindsym $mod+5 workspace number 5 $ws5; exec --no-startup-id bash ~/.config/i3/scripts/prof.sh &
-
-# Plotting
-bindsym $mod+6 workspace number 6 $ws6; exec --no-startup-id bash ~/.config/i3/scripts/plot.sh &
-
-# Latex
-bindsym $mod+7 workspace number 7 $ws7; exec --no-startup-id bash ~/.config/i3/scripts/latex.sh &
-
-# Notes
-bindsym $mod+8 workspace number 8 $ws8; exec --no-startup-id bash ~/.config/i3/scripts/notes.sh &
-
-# Messaging
-bindsym $mod+9 workspace number 9 $ws9; exec --no-startup-id bash ~/.config/i3/scripts/messaging.sh
 
 # Opacity
 exec --no-startup-id picom
 
 # # No sleep
-# exec --no-starup-id xset dpms 0 0 2000
+# exec --no-startup-id xset dpms 0 0 2000
 
 exec --no-startup-id setxkbmap -option 'lv3:alt_switch,grp:rwin_toggle' -layout 'user,ru' -variant 'intl,phonetic_winkeys'
 # exec --no-startup-id systemctl enable udevmon; exec --no-startup-id systemctl start udevmon
@@ -346,19 +375,15 @@ exec_always --no-startup-id caffeine
 # Nvidia fix
 exec --no-startup-id sudo systemctl enable nvidia-suspend.service
 # exec --no-startup-id sudo systemctl enable nvidia-resume.service
-# exec --no-starup-id sudo systemctl stop nvidia-suspend.service
-# exec --no-starup-id sudo systemctl stop nvidia-hibernate.service
-# exec --no-starup-id sudo systemctl stop nvidia-resume.service
+# exec --no-startup-id sudo systemctl stop nvidia-suspend.service
+# exec --no-startup-id sudo systemctl stop nvidia-hibernate.service
+# exec --no-startup-id sudo systemctl stop nvidia-resume.service
 
-# exec --no-starup-id sudo systemctl disable nvidia-suspend.service
-# exec --no-starup-id sudo systemctl disable nvidia-hibernate.service
+# exec --no-startup-id sudo systemctl disable nvidia-suspend.service
+# exec --no-startup-id sudo systemctl disable nvidia-hibernate.service
 
-bindsym $mod+Escape exec "i3-instant-layout --list | rofi -dmenu -i | i3-instant-layout - exec --no-starup-id sudo systemctl disable nvidia-resume.service
+bindsym $mod+Escape exec "i3-instant-layout --list | rofi -dmenu -i | i3-instant-layout - exec --no-startup-id sudo systemctl disable nvidia-resume.service
 exec_always --no-startup-id thunar --daemon
-
-# Zotero
-# for_window [class="Zotero"] focus
-bindsym $mod+z exec --no-startup-id zotero; [class="Zotero"] focus
 
 # Screenshots
 exec_always --no-startup-id flameshot
@@ -373,3 +398,5 @@ exec --no-startup-id autokey-qt
 
 # Emojis 🦄🌈😍
 bindsym $mod+y exec "rofi -modi emoji -show emoji"
+
+exec --no-startup-id "sleep 1m; i3-msg restart"

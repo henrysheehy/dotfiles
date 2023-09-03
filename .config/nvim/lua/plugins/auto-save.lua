@@ -1,5 +1,5 @@
 -- Toggle automatically saving changes in NeoVim
-vim.api.nvim_set_keymap("n", "<leader>n", ":ASToggle", {})
+vim.api.nvim_set_keymap("n", "<leader>n", "<CMD>:ASToggle<CR>", {})
 
 -- Silence autosave
 vim.g.auto_save_silent = 1

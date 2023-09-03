@@ -77,16 +77,6 @@ bindkey -s '^t' 'xdg-open $(fzf) ^M'
 autoload edit-command-line; zle -N edit-command-line
 bindkey -s '^e' 'nvim $(fzf) ^M'
 
-# plugins
-plugins=(
-  fzf
-)
-
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export FZF_DEFAULT_COMMAND="find -L"
 
 alias make-silent="make >/dev/null || make"
@@ -213,3 +203,166 @@ bindkey '^H' backward-kill-word
 bindkey '^[[3;2~' kill-word
 
 bindkey '^@' clear-screen
+
+
+# Shortcuts
+alias H="ranger $VAULT"
+alias DA="ranger $DATA"
+alias P="ranger $PROJ"
+alias I="ranger $PICS"
+alias N="ranger $NOTE"
+alias B="ranger $BOOK"
+alias M="ranger $MUSIC"
+alias A="ranger $ART"
+alias D="ranger $DOCS"
+# alias DI="ranger $DIST"
+# alias VI="ranger $VIDEO" 
+alias W="ranger $WORK"
+alias C="ranger $CONF"
+alias S="ranger $SNIP"
+alias V="nvim $INIT"
+alias SC="ranger $SCRIPT"
+alias L="ranger $LSP"
+
+alias CL='find . -regextype posix-egrep -regex ".*\.(aux|bbl|bcf|blg|fdb_latexmk|fls|run.xml|synctex.gz|tdo|toc|log|hst|ver)$" -delete'
+
+################################################################################
+# https://superuser.com/questions/823883/how-to-justify-and-center-text-in-bash
+# Formatting using printf
+# 
+# _L == total length for 'L' and 'R' options
+# tl == total length for 'C' option
+# _c == center for 'C' option ( tl / 2 )
+# fill == filler character or space by default
+# 
+# Default lengths declared at top of function
+# 
+# usage $) f_M [string] [L,R,C] [character count]
+#       -S option:
+#       $) f_M -S [character] [total length (- for default 'space')]
+#        -3rd var ($3) is needed for filler character ($2) or
+#         else ($2) is total length
+# 
+# 
+
+f_M () {
+    tl=72
+    _c=36
+    _L=16
+    f_numread () {
+        printf $1 | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta'
+    }
+    f_C () {
+        local x=$(printf $1 | wc -c)
+        local y=$(expr $_c - $(expr $x / 2))
+        local z=$(expr $tl - $y)
+        local space=' '
+        printf "%${y}s%-${z}s\n" "$space" "$1"
+    }
+    case $1 in
+        -S)
+            fill=' '
+            if [[ -n $2 ]]; then
+                if [[ -n $3 ]]; then
+                    fill="$2"
+                    if [[ $3 =~ ^-?[0-9]+$ ]]; then
+                        tl=$3
+                    fi
+                else
+                    if [[ $2 =~ ^-?[0-9]+$ ]]; then
+                        tl=$2
+                    fi
+                fi
+            fi
+            printf "${fill}%.0s" {1..$tl}
+            ;;
+        *)
+            if [[ $3 =~ ^-?[0-9]+$ ]]; then
+                tl=$3
+                _L=$3
+                _c=$(expr $tl / 2)
+            fi
+            if [[ $1 =~ ^-?[0-9]+$ ]]; then
+                local x=$(f_numread $1)
+                case $2 in
+                    L)
+                        printf "%-${_L}s\n" "$x" ;;
+                    R)
+                        printf "%${_L}s\n" "$x" ;;
+                    C)
+                        f_C $x ;;
+                    "")
+                        printf '%s\n' $x
+                esac
+            else
+                case $2 in
+                    L)
+                        printf "%-${_L}s\n" "$1" ;;
+                    R)
+                        printf "%${_L}s\n" "$1" ;;
+                    C)
+                        f_C $1 ;;
+                    "")
+                        printf '%s\n' $1
+                esac
+            fi
+            ;;
+    esac
+}
+
+# f_fancy_box () {
+    # local s=''
+    # for s in ${text[@]}; do
+    #     case $s in
+    #         000) printf '%b\n' "<$(f_M -S = -)>" ;;
+    #         ---) printf '%b\n' "| $(f_M -S - 70) |" ;;
+    #         *) printf '%b\n' "|$(f_M $s C)|" ;;
+    #     esac
+    # done
+# }
+
+f_fancy_box () {
+    a=("$@")
+    
+    local s=''
+    for s in "${a[@]}" ; do
+      case $s in
+          000) printf '%b\n' "#$(f_M -S = -)#" ;;
+          ---) printf '%b\n' "# $(f_M -S - 70) #" ;;
+          TIT*) printf '%b\n' "#$(f_M "* ${s#TIT } *" C)#" ;;
+          *) printf '%b\n' "#$(f_M "$s" C)#" ;;
+      esac
+    done
+  }
+
+copyright () {
+      text=(
+"000"
+" "
+"TIT ${1}"
+"${2}"
+"Authored by Henry Sheehy"
+"Copyright (c) `date +%Y-%m-%d`"
+"All rights reserved"
+" "
+"Licensed under the"
+"GNU Library General Public License version 2.0 (LGPLv2.0)"
+" "
+"000"
+)
+
+f_fancy_box $text
+}
+################################################################################
+
+
+# plugins
+plugins=(
+  fzh
+)
+
+# Load zsh-syntax-highlighting; should be last.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source "/usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

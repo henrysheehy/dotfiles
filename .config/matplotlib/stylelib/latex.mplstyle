@@ -3,7 +3,9 @@ xtick.color: "black"
 axes.labelcolor : "black"
 axes.edgecolor : "black"
 text.usetex : True
-text.latex.preamble : \usepackage{amsmath} 
+# pgf.rcconfig : True
+pgf.texsystem : lualatex
+text.latex.preamble : "\usepackage{amsmath,fontsetup}"
 font.family : "serif",
 font.serif : ["Computer Modern Serif"]}
 patch.linewidth : 1.5

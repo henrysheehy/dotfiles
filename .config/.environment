@@ -1,7 +1,8 @@
-# Run $HOME/.scripts/ENVIRONMENT.sh after modifying this file
+# Run ~/.scripts/ENVIRONMENT.sh after modifying this file
 # User-defined global variables --do not remove this line
 
 VAULT=/vault
+
 DATA=/vault/Data
 PROJ=/vault/Projects
 PICS=/vault/Pictures
@@ -12,5 +13,13 @@ ART=/vault/Art
 DOCS=/vault/Documents
 DIST=/vault/Distro
 VIDEO=/vault/Videos
-WORKSHOPS=/vault/Workshops
+WORK=/vault/Workshops
 
+CONF=~/.config
+SCRIPT=~/.script
+INIT=~/.config/nvim/init.lua
+SNIP=~/.config/nvim/LuaSnip/
+LSP=~/.config/nvim/lua/lsp/lsp.lua
+
+VISUAL=nvim
+EDITOR=nvim

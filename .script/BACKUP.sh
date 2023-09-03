@@ -1,5 +1,10 @@
 #!/bin/sh
-
+################################################
+#       * AUR and pip package packup *         #
+#             Henry Joseph Sheehy              #
+#          Copyright September 2023            #
+#               GNU 2.0 License                #
+################################################
 # AUR packages
 ## The .packages are for general use.
 ## The .desktop-packages include additional files 

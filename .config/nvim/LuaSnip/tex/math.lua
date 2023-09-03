@@ -21,70 +21,70 @@ end
 return
 {
   -- BOLD VECTORS
-  s({trig = '([%a%)%]%}])bf', regTrig = true, wordTrig = false, snippetType="autosnippet", dscr="Boldface"},
-    fmta(
-      "\\mathbf{<>}<>",
-      {
-        f( function(_, snip) return snip.captures[1] end ),
-        i(0)
-      }
-      ),
-      {condition = tex.in_mathzone}
-    ),
-    s({trig="RR", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
-      fmta(
-        "\\mathbf{R}<>",
-        {
-          i(0),
-        }
-      ),
-      {condition = tex.in_mathzone}
-    ),
-    s({trig="kk", wordTrig=false, regTrig = false, dscr="boldface", snippetType="autosnippet"},
-      fmta(
-        "\\mathbf{k}<>",
-        {
-          i(0),
-        }
-      ),
-      {condition = tex.in_mathzone}
-    ),
-    s({trig="qq", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
-      fmta(
-        "\\mathbf{qq}<>",
-        {
-          i(0),
-        }
-      ),
-      {condition = tex.in_mathzone}
-    ),
-    s({trig="xx", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
-      fmta(
-        "\\mathbf{x}<>",
-        {
-          i(0),
-        }
-      ),
-      {condition = tex.in_mathzone}
-    ),
-    s({trig="yy", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
-      fmta(
-        "\\mathbf{y}<>",
-        {
-          i(0),
-        }
-      ),
-      {condition = tex.in_mathzone}
-    ),
-    s({trig="zz", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
-      fmta(
-        "\\mathbf{z}<>",
-        {
-          i(0),
-        }
-      ),
-      {condition = tex.in_mathzone}
-    ),
+  -- s({trig = '([%a%)%]%}])bf', regTrig = true, wordTrig = false, snippetType="autosnippet", dscr="Boldface"},
+  --   fmta(
+  --     "\\mathbf{<>}<>",
+  --     {
+  --       f( function(_, snip) return snip.captures[1] end ),
+  --       i(0)
+  --     }
+  --     ),
+  --     {condition = tex.in_mathzone}
+  --   ),
+    -- s({trig="RR", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
+    --   fmta(
+    --     "\\mathbf{R}<>",
+    --     {
+    --       i(0),
+    --     }
+    --   ),
+    --   {condition = tex.in_mathzone}
+    -- ),
+    -- s({trig="kk", wordTrig=false, regTrig = false, dscr="boldface", snippetType="autosnippet"},
+    --   fmta(
+    --     "\\mathbf{k}<>",
+    --     {
+    --       i(0),
+    --     }
+    --   ),
+    --   {condition = tex.in_mathzone}
+    -- ),
+    -- s({trig="qq", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
+    --   fmta(
+    --     "\\mathbf{qq}<>",
+    --     {
+    --       i(0),
+    --     }
+    --   ),
+      -- {condition = tex.in_mathzone}
+    -- ),
+    -- s({trig="xx", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
+    --   fmta(
+    --     "\\mathbf{x}<>",
+    --     {
+    --       i(0),
+    --     }
+    --   ),
+    --   {condition = tex.in_mathzone}
+    -- ),
+    -- s({trig="yy", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
+    --   fmta(
+    --     "\\mathbf{y}<>",
+    --     {
+    --       i(0),
+    --     }
+    --   ),
+    --   {condition = tex.in_mathzone}
+    -- ),
+    -- s({trig="zz", wordTrig=false, regTrig = true, dscr="boldface", snippetType="autosnippet"},
+    --   fmta(
+    --     "\\mathbf{z}<>",
+    --     {
+    --       i(0),
+    --     }
+    --   ),
+    --   {condition = tex.in_mathzone}
+    -- ),
   -- -- SUPERSCRIPT
   -- s({trig = "([%w%)%]%}])'", wordTrig=false, regTrig = true, snippetType="autosnippet"},
   --   fmta(

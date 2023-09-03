@@ -85,3 +85,27 @@ working_directory: None
   # - { key: J,        mods: Control|Shift, chars: "\x1b[74;5u"            }
   # - { key: K,        mods: Control|Shift, chars: "\x1b[75;5u"            }
   # - { key: R,        mods: Control|Shift, chars: "\x1b[72;5u"            }
+
+font:
+  normal:
+    family: hack
+    style: Regular
+
+  bold:
+    family: hack
+    style: Bold
+
+  italic:
+    family: hack
+    style: Italic
+
+  bold_italic:
+    family: hack
+    style: Bold Italic
+
+ 
+size: 11
+
+key_bindings:
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: R,   mods: Control|Shift, chars: "ranger\x0d"}

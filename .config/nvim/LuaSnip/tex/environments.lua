@@ -11,6 +11,7 @@ local line_begin = require("luasnip.extras.expand_conditions").line_begin
 -- Return snippet tables
 return
   {
+    -------------------------------------------
     -- GENERIC ENVIRONMENT
     s({trig="new", snippetType="autosnippet"},
       fmta(

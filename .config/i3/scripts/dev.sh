@@ -1,9 +1,3 @@
 #!/usr/bin/sh
-if `sh ~/.config/i3/scripts/ws_check.sh Development`
-then
-    :
-else
-    alacritty -e ranger ~/Projects/multiorbital-superconductivity/01-main/ &
-    alacritty -e ranger ~/Projects/multiorbital-superconductivity/01-main/ &
-fi
+`sh ~/.config/i3/scripts/ws_check.sh 4` && { alacritty -e ranger $PROJ/testbed/LaTeX/ & alacritty -e htop ; }
 exit

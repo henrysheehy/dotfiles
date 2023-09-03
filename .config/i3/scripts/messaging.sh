@@ -1,9 +1,3 @@
 #!/usr/bin/sh
-if `sh ~/.config/i3/scripts/ws_check.sh Messaging`
-then
-    exit
-else
-    exec signal-desktop &
-    exec whatsapp-for-linux &
-fi
+`sh ~/.config/i3/scripts/ws_check.sh 8` && { signal-desktop ; whatsapp-for-linux ; telegram-desktop ; }
 exit

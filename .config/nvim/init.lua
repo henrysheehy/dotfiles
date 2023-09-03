@@ -19,6 +19,9 @@ vim.opt.signcolumn   = "no"   -- disable LSP diagnostic symbols in left column
 -- vim.g.ranger_replace_netrw = 1 --open ranger when vim open a directory
 vim.g.vmt_auto_update_on_save = 1 -- Toc updates
 
+vim.opt.spelllang="en_gb,fr,sp,ru,ch"
+vim.keymap.set('', '<C-s>', '<Esc>[s1z=<C-o>', { silent = true })
+
 vim.keymap.set('', '<Space>', '<NOP>')
 vim.g.mapleader = " "  -- set global leader key
 
@@ -28,21 +31,21 @@ end
 
 -- Persistent undo https://www.adrian.idv.hk/2022-05-07-nvim-lua/
 -- vim.opt.undodir = vim.fn.stdpath('config') .. '/.undo'
-vim.o.undodir = '~/.config/nvim/.undo//'
+vim.opt.undodir:prepend(os.getenv("HOME") .. "/.config/nvim/.undo//")
 -- vim.opt.undofile 
 vim.opt.undofile = true
 
 -- OS detection
--- if vim.fn.exists("g:os_current") == 0 then
---   if vim.fn.system('uname -s') == "Linux\n" then
---     vim.g.os_current = "Linux"
---   elseif vim.fn.system('uname -s') == "Darwin\n" then
---     vim.g.os_current = "Darwin"
---   else
---     print("Error: the current operating system won't support all of my Vim configurations.")
---     vim.g.os_current = "Other"
---   end
--- end
+if vim.fn.exists("g:os_current") == 0 then
+  if vim.fn.system('uname -s') == "Linux\n" then
+    vim.g.os_current = "Linux"
+  elseif vim.fn.system('uname -s') == "Darwin\n" then
+    vim.g.os_current = "Darwin"
+  else
+    print("Error: the current operating system won't support all of my Vim configurations.")
+    vim.g.os_current = "Other"
+  end
+end
 
 if vim.g.os_current == "Linux" then
   vim.g.python3_host_prog = "/usr/bin/python3"
@@ -86,6 +89,8 @@ Plug 'rbgrouleff/bclose.vim' -- ranger.vim dependency
 Plug 'francoiscabrol/ranger.vim' 
 Plug 'nvim-tree/nvim-web-devicons' -- optional, for file icons
 Plug 'vim-voom/voom'
+Plug 'windwp/nvim-autopairs'
+Plug 'matveyt/neoclip' -- clipboard
 
 -- Autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -195,7 +200,6 @@ xnoremap <C-Down> :m'>+<CR>gv=gv
 xnoremap <C-Up>  :m-2<CR>gv=gv
 ]])
 
-
 -- Global substitute
 vim.keymap.set('n', '<Leader>s', ':%s/')
 vim.keymap.set('v', '<Leader>s', ':s/')
@@ -266,6 +270,17 @@ autocmd User targets#mappings#user call targets#mappings#extend({
     \ })
 ]]
 
+-- -- Delimiters
+-- vim.keymap.set('i', '(', '()<Left>')
+-- vim.keymap.set('i', '<', '<><Left>')
+-- vim.keymap.set('i', '<|', '<|')
+-- vim.keymap.set('i', '$$', '$$<Left>')
+-- vim.keymap.set('i', '{', '{}<Left>')
+-- vim.keymap.set('i', '[', '[]<Left>')
+-- vim.keymap.set('i', '"', '""<Left>')
+-- vim.keymap.set('i', '""', '""""""<Left><Left><Left>')
+
+-- Highlight colours
 vim.keymap.set('', '<Leader>hc', '<Cmd>HighlightColorsToggle<CR>')
 
 vim.keymap.set('n', '<Leader>l', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')
@@ -307,3 +322,17 @@ let g:polyglot_disabled = ['markdown'] " for vim-polyglot users, it loads Plasti
 -- LSP config
 require('lsp/lsp')
 
+-- Nvim-autopairs
+require("nvim-autopairs").setup {}
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
+-- BEGIN :
+-- Pythontex and Minted
+-- Developed from https://evesdropper.dev/files/luasnip/conditions-minted/
+-- local ls = require("luasnip")
+-- END
