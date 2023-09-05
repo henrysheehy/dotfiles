@@ -81,6 +81,8 @@ export FZF_DEFAULT_COMMAND="find -L"
 
 alias make-silent="make >/dev/null || make"
 
+alias kmp="killall mplayer ; killall mplayer;  killall screenkey"
+
 
 # Move between words:
 # bindkey "^[h" backward-word 

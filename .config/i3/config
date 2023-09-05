@@ -134,12 +134,13 @@ bindsym $mod+Ctrl+v split h
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle ; [floating] resize set 960 540 ;move position 0 34
+for_window [floating] resize set 960 540
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -188,21 +189,25 @@ bindsym $mod+5 workspace number 5 $ws5; exec --no-startup-id bash ~/.config/i3/s
 
 # Broadcast
 for_window [class="Teams"] move container to workspace number 6 $ws6
-# bindsym $mod+6 workspace number 6 $ws6; 
 
-mode "Run [t]eams?" {
+mode "Run Teams?" {
 
-  bindsym t mode "Teams"; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh & 
-  bindsym y mode "Teams"; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh & 
-  bindsym Y mode "Teams"; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh & 
+  bindsym t mode "Teams"; exec --no-startup-id teams
+  bindsym y mode "Teams"; exec --no-startup-id teams
+  bindsym Y mode "Teams"; exec --no-startup-id teams
   
   bindsym Escape mode "default"
-
+  bindsym n mode "default"
+  bindsym N mode "default"
   bindsym Return mode "default"
 
 }
 
-bindsym $mod+6 workspace number 6 $ws6; mode "Run [t]eams?"
+bindsym $mod+6 workspace number 6 $ws6;  exec --no-startup-id iriunwebcam ; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh
+bindsym $mod+s; exec --no-startup-id bash ~/.config/i3/scripts/screenkey.sh
+bindsym $mod+Shift+b; exec --no-startup-id bash  ~/.config/i3/scripts/kill_broadcast.sh
+
+for_window [class="MPlayer"] floating enable ; resize set 960 540; position 0 px 35 py
 
 # Default Spotify workspace 
 for_window [class="Spotify"] move container to workspace number 7 $ws7
