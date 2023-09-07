@@ -91,9 +91,15 @@ git pull origin master
 
 #### Vim plugins
 In order to install the plugins when using Vim for the first time, 
-Open Vim by entering `v my_first_file.md`. 
-This will create a file with the given name in your current working directory (cwd).
-Inside the Vim instance, type `:PlugInstall`.
+begin by enetering the following into your terminal
+```bash
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+Next, open Vim by entering `nvim $HOME/.config/nvim/init.lua`. 
+Inside the Vim instance, type `:PlugInstall` and enter.
+
+Further information can be found in [E. J. Mastnak's guide](https://www.ejmastnak.com/tutorials/vim-latex/intro/).
 
 ### Keyboard
 In order to use my keyboard (English, Greek, Chinese 

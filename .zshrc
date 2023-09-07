@@ -81,7 +81,7 @@ export FZF_DEFAULT_COMMAND="find -L"
 
 alias make-silent="make >/dev/null || make"
 
-alias kmp="killall mplayer ; killall mplayer;  killall screenkey"
+alias kmp="killall mplayer ; killall mplayer;  killall screenkey; killall droidcam-cli"
 
 
 # Move between words:

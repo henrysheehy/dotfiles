@@ -45,7 +45,7 @@ case "$1" in
         if $progress ; then
           notify-send "Backup already underway..." -t 5000
         else
-          notify-send "Starting backup" -t 5000
+          notify-send "Backing up..." -t 5000
           progress=true
 
         sed -i '4s/.*/in-progress:'$progress/ "$CACHE"
@@ -56,7 +56,7 @@ case "$1" in
 
         wait
 
-        notify-send "Backup done" -t 5000
+        notify-send "Backup done!" -t 5000
 
         progress="Nothing"
 

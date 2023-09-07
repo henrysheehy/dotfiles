@@ -3,6 +3,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+set $float exec --no-startup-id path_to/ugly_workaround_script.sh, floating toggle
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -139,7 +141,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle ; [floating] resize set 960 540 ;move position 0 34
+bindsym $mod+Shift+space $float ; [floating] resize set 960 540 ;move position 0 34
 for_window [floating] resize set 960 540
 
 # change focus between tiling / floating windows
@@ -203,9 +205,10 @@ mode "Run Teams?" {
 
 }
 
-bindsym $mod+6 workspace number 6 $ws6;  exec --no-startup-id iriunwebcam ; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh
+bindsym $mod+6 workspace number 6 $ws6 
+#; exec --no-startup-id bash ~/.config/i3/scripts/broadcast.sh
 bindsym $mod+s; exec --no-startup-id bash ~/.config/i3/scripts/screenkey.sh
-bindsym $mod+Shift+b; exec --no-startup-id bash  ~/.config/i3/scripts/kill_broadcast.sh
+bindsym $mod+Shift+b; exec --no-startup-id bash  ~/.config/i3/scripts/broadcast.sh
 
 for_window [class="MPlayer"] floating enable ; resize set 960 540; position 0 px 35 py
 
