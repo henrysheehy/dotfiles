@@ -94,9 +94,10 @@ cmp.setup({
     -- documentation = cmp.config.window.bordered(),
   },
     mapping = {
-      -- ['<Right>'] = cmp_action.luasnip_supertab(),
-      -- ['<Left>'] = cmp_action.luasnip_shift_supertab(),
-      ['kj'] = cmp_action.luasnip_shift_supertab(),
+      ['<Right>'] = cmp_action.luasnip_supertab(),
+      ['<Left>'] = cmp_action.luasnip_shift_supertab(),
+      -- ['kk'] = cmp_action.luasnip_supertab(),
+      -- ['jj'] = cmp_action.luasnip_shift_supertab(),
       ['jk'] = cmp.mapping.confirm({select = true}),
     },
   sources = cmp.config.sources({

@@ -228,6 +228,36 @@ alias L="ranger $LSP"
 
 alias CL='find . -regextype posix-egrep -regex ".*\.(aux|bbl|bcf|blg|fdb_latexmk|fls|run.xml|synctex.gz|tdo|toc|log|hst|ver)$" -delete'
 
+note() {
+    dir=`pwd`
+    title="$(echo "$1" | sed 's/.*/\u&/' | sed 's/-/ /g' | sed 's/_/ /g')"
+    file=$1".md"
+    file=$NOTE/$file
+    if [ ! -e "$file" ] ; then
+        echo "# $title
+Entry: `date`  
+" > $file
+        if [ "$dir" != "$HOME" ] && [ "$dir" != $NOTE ]; then
+          ln -s $file $dir
+          echo "[Working directory]($dir)
+
+" >> $file
+        fi
+    else
+        var=`grep -Eo 'Entry:* *:*:* .*' $file | tail -1 | awk -F' ' '{print $2" "$3" "$4" "$5" "$6" "$7}' | tr -d ]`
+        last="$(echo "$var" | awk '{print "date -d\""$1FS$2FS$3"\" +%Y%m%d"}' | bash )"
+        today=`date +%Y%m%d`
+        if [ "$today" != "$last" ] ; then
+            echo "
+Entry: `date`  
+" >> $file
+        fi
+    fi
+    nvim -c "startinsert" + $file 
+}
+alias n='note'
+alias iso="date +"%Y-%m-%dT%H:%M:%S%:z""
+
 ################################################################################
 # https://superuser.com/questions/823883/how-to-justify-and-center-text-in-bash
 # Formatting using printf

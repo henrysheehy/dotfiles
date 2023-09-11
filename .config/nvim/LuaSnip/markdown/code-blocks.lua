@@ -43,6 +43,7 @@ return
         <?php
         {}
         ```
+
         ]],
         {
           d(1, get_visual)

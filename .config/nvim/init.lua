@@ -18,6 +18,7 @@ vim.opt.signcolumn   = "no"   -- disable LSP diagnostic symbols in left column
 -- vim.g.NERDTreeHijackNetrw = 0
 -- vim.g.ranger_replace_netrw = 1 --open ranger when vim open a directory
 vim.g.vmt_auto_update_on_save = 1 -- Toc updates
+vim.opt.clipboard=unnamedplus
 
 vim.opt.spelllang="en_gb,fr,sp,ru,ch"
 vim.keymap.set('', '<C-s>', '<Esc>[s1z=<C-o>', { silent = true })
@@ -90,7 +91,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'nvim-tree/nvim-web-devicons' -- optional, for file icons
 Plug 'vim-voom/voom'
 Plug 'windwp/nvim-autopairs'
-Plug 'matveyt/neoclip' -- clipboard
+Plug 'max397574/better-escape.nvim'
 
 -- Autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -161,8 +162,11 @@ require('nvim-highlight-colors').setup {}
 -- require("mason-lspconfig").setup()
 -- local server_opts = {}
 -- require("lspconfig").omnisharp.setup(server_opts)
-
-
+require("better_escape").setup {
+  mapping ={"jj"},  
+  timeout = vim.o.timeoutlen,
+  clear_empty_lines = false,  
+  keys = "<Esc>"} 
 
 -- BEGIN MISCELLANEOUS
 -- --------------------------------------------- "

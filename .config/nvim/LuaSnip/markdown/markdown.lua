@@ -32,6 +32,15 @@ return
         }
       )
     ),
+    -- STRIKETHROUGH
+    s({trig="tst", snippetType="autosnippet"},
+      fmta(
+        [[~~<>~~]],
+        {
+          d(1, get_visual),
+        }
+      )
+    ),
     -- BOLDFACE TEXT
     s({trig="tbb", snippetType="autosnippet"},
       fmta(
@@ -54,6 +63,15 @@ return
     s({trig="uu", snippetType="autosnippet"},
       fmt(
         [[<u>{}/<u>]],
+        {
+          d(1, get_visual),
+        }
+      )
+    ),
+    -- keys
+    s({trig="kk", snippetType="autosnippet"},
+      fmt(
+        [[<kbd>{}</kbd>]],
         {
           d(1, get_visual),
         }
