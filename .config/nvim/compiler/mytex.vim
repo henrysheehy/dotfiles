@@ -3,6 +3,7 @@ if exists("current_compiler")
 	finish
 endif
 let current_compiler = "mytex"
+" let g:vimtex_compiler_progname = 'nvr'
 
 " Begin project root detection
 " ---------------------------------------------
