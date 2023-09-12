@@ -9,13 +9,16 @@ function M.get_ISO_8601_date()
 end
 
 function M.get_ISO_8601_time()
-  return os.date("%H:%M:%S")
+  return os.date("%H:%M:%S%z")
 end
 
 function M.get_ISO_8601_date_time()
-  return os.date("%Y-%m-%d %H:%M:%S")
+  return os.date("%Y-%m-%d %H:%M:%S%z")
 end
 
+function M.get_journal_date_time()
+  return os.date( "!%a %b %d, %H:%M:%S%z")
+end
 
 function M.get_visual(args, parent)
   if (#parent.snippet.env.SELECT_RAW > 0) then

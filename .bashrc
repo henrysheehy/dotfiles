@@ -143,3 +143,8 @@ exec zsh
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
+
+
+export PASSWORD_STORE_DIR="/vault/Secure/.pass/"
+export GNUPGHOME="/vault/Secure/.gnupg/"
+export UserKnownHostsFile="/vault/Secure/.ssh/config/known_hosts.d/"

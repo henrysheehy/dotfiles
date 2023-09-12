@@ -398,3 +398,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source "/usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PASSWORD_STORE_DIR="/vault/Secure/.pass/"
+export GNUPGHOME="/vault/Secure/.gnupg/"
+export UserKnownHostsFile="/vault/Secure/.ssh/config/known_hosts.d/"
+export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"

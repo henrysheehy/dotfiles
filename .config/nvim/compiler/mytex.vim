@@ -24,8 +24,8 @@ else  " 'TEXROOT' found in preamble; current file is NOT project root
 endif
 
 " make programs using pdflatex or latexmk
-" let s:pdflatex = 'pdflatex -file-line-error -interaction=nonstopmode ' .
-"       \ '-halt-on-error -synctex=1 -output-directory=' . expand(b:tex_root_dir)
+let s:pdflatex = 'pdflatex -file-line-error -interaction=nonstopmode ' .
+      \ '-halt-on-error -synctex=1 -output-directory=' . expand(b:tex_root_dir)
 let s:latexmk = 'latexmk -lualatex -file-line-error -interaction=nonstopmode ' .
       \ '-halt-on-error -synctex=1 -output-directory=' . expand(b:tex_root_dir)
 " let s:latexmk = 'latexmk -pdf -output-directory=' . expand(b:tex_root_dir)
