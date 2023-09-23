@@ -87,3 +87,18 @@ omap <buffer> <plug> <plug>(textobj-markdown-chunk-n)
 omap <buffer> <plug> <plug>(textobj-markdown-chunk-p)
 omap <buffer> <plug> <plug>(textobj-markdown-chunk-N)
 omap <buffer> <plug> <plug>(textobj-markdown-chunk-P)
+
+let markdown_fenced_languages = ['tex=latex', 'python','viml=vim','bash=sh']
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+set conceallevel=2
+let g:vim_markdown_folding_disabled = 1
+
+" Inkscape
+nnoremap <C-f> :silent exec '.!~/.script/inkscape-vim/ink.py %:p:h "'.getline(".").'"'<CR><CR>
+
+" Markdown Preview
+let g:mkdp_theme = 'light'

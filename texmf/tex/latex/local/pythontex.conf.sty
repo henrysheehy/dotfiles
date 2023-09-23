@@ -1,0 +1,88 @@
+\ProvidesPackage{pythontex.conf}[2023/09/22 Henry's custom PythonTeX style]
+
+%%% Pass textwidth to pytex.context dictionary
+\setpythontexcontext{textwidth=\the\textwidth, textheight=\the\textheight}
+%%% Pass fontsize
+% \newlength{\mytextsize}
+% \makeatletter
+% \show\f@size
+% \setlength{\mytextsize}{\f@size pt}
+% \makeatother
+% \setpythontexcontext{fontsize=\mytextsize}
+
+% Convenient figure directory
+\RequirePackage{graphicx}
+\graphicspath{{figures/}}
+
+\begin{pycode}
+"""
+============
+PGF preamble
+============
+"""
+import matplotlib.pyplot as plt
+
+def main():
+
+
+    width = float(pytex.context.textwidth.replace('pt',''))
+
+
+    
+    plt.rcParams.update({
+        "text.usetex": True,     # use inline math for ticks
+        "pgf.rcfonts": False,    # don't setup fonts from rc parameters
+        "pgf.texsystem": "lualatex",
+        "pgf.preamble": preamble,
+        "figure.figsize": set_size(width),
+        # "font.size": pytex.context.fontsize,
+        })
+
+####################################################
+#################### Functions #####################
+####################################################
+
+def set_size(width, fraction=1):
+    """Set figure dimensions to avoid scaling in LaTeX.
+
+    Parameters
+    ----------
+    width: float
+            Document textwidth or columnwidth in pts
+    fraction: float, optional
+            Fraction of the width which you wish the figure to occupy
+
+    Returns
+    -------
+    fig_dim: tuple
+            Dimensions of figure in inches
+    """
+    # Width of figure (in pts)
+    fig_width_pt = width * fraction
+
+    # Convert from pt to inches
+    inches_per_pt = 1 / 72.27
+
+    # Golden ratio to set aesthetic figure height
+    # https://disq.us/p/2940ij3
+    golden_ratio = (5**.5 - 1) / 2
+
+    # Figure width in inches
+    fig_width_in = fig_width_pt * inches_per_pt
+    # Figure height in inches
+    fig_height_in = fig_width_in * golden_ratio
+
+    fig_dim = (fig_width_in, fig_height_in)
+
+    return fig_dim
+
+
+preamble = open(r"preamble.tex","r").read()
+
+FIG="figures/"
+
+main()
+
+\end{pycode}
+
+\endinput

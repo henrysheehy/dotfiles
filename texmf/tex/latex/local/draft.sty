@@ -1,0 +1,16 @@
+\ProvidesPackage{draft}[2023/09/22 Draft style]
+
+\RequirePackage{vhistory}
+\RequirePackage{todonotes}
+
+\hypersetup{%
+    pdftitle = {\docTitle},
+    pdfkeywords = {\docTitle, Version \vhCurrentVersion
+    from \vhCurrentDate},
+    pdfauthor = {\vhAllAuthorsSet}
+    }
+
+\title{\docTitle} \author{\vhListAllAuthorsLongWithAbbrev}
+\date{Version \vhCurrentVersion\ from \vhCurrentDate}
+
+\endinput

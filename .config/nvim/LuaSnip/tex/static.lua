@@ -45,11 +45,6 @@ return
         t("\\nonumber"),
       }
     ),
-    s({trig="ll", snippetType="autosnippet"},
-      {
-        t("& "),
-      }
-    ),
     s({trig="q"},
       {
         t("\\quad "),

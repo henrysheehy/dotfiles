@@ -1,0 +1,17 @@
+\ProvidesPackage{defaults}[2023/09/22 Henry's default packages]
+
+%% Symbols
+\RequirePackage{amssymb} % must come before fontsetup
+%% Greek symbols (requires LuaLaTeX backend)
+\RequirePackage{fontsetup} %
+
+% Standard essential packages
+\RequirePackage{biblatex}
+\RequirePackage{amsmath}
+\RequirePackage{hyperref}
+
+% Bug fix 
+% Fix bold math for LuaLaTeX using this instead of bm package
+\newcommand{\bm}{\symbf}
+
+\endinput

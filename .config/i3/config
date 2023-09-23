@@ -233,14 +233,16 @@ bindsym $mod+z exec --no-startup-id zotero; [class="Zotero"] focus
 exec --no-startup-id zotero
 
 # Inkscape
-for_window [class="Inkscape"] floating enable
+# for_window [class="Inkscape"] floating enable
 # for_window [class="Inkscape"] move container to workspace number 10 $ws10
-for_window [title="inkscape-popup"] floating enable
+# for_window [title="inkscape-popup"] floating enable
 bindsym $mod+0 workspace number 10 $ws10; exec --no-startup-id bash ~/.config/i3/scripts/draw.sh
 
 # bindsym $mod+i; exec --no-startup-id bash ~/.config/i3/scripts/draw.sh; [class="Inkscape"] focus
 exec --no-startup-id inkscape-figures
 exec --no-startup-id inkscape
+
+bindsym $mod+Shift+f; exec --no-startup-id flameshot gui;
 
 # switch to workspace
 #bindsym $mod+1 workspace number 1 $ws1 

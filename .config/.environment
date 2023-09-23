@@ -1,5 +1,7 @@
-# Run ~/.scripts/ENVIRONMENT.sh after modifying this file
+# Run ~/.scripts/ENVIRONMENT.sh after modifying this fileG
 # User-defined global variables --do not remove this line
+
+SHELL=/bin/zsh
 
 VAULT=/vault
 

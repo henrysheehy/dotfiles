@@ -1,4 +1,6 @@
-vim.opt.spelllang = 'en_gb'
+vim.opt.spelllang="en_gb,fr,pt,es,ru,cjk"
+vim.keymap.set('', '<C-s>', '<Esc>[s1z=``', { silent = true })
+
 vim.opt.spell = true --automatically spell check upon opening LaTeX file
 
 vim.b.SPELL_FRENCH = false

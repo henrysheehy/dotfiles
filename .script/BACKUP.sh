@@ -14,6 +14,7 @@
 pacman -Qqe > "$HOME/.packages" 
 sed -i '/texlive/d' "$HOME/.packages"
 echo "texlive-full" >> $HOME/.packages
+echo "texlive-lang" >> $HOME/.packages
 cp "$HOME/.packages" "$HOME/.desktop-packages"
 sed -i '/manjaro/d' "$HOME/.packages"
 sed -i '/nvidia/d' "$HOME/.packages"

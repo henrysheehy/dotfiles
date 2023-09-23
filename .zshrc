@@ -226,7 +226,7 @@ alias V="nvim $INIT"
 alias SC="ranger $SCRIPT"
 alias L="ranger $LSP"
 
-alias CL='find . -regextype posix-egrep -regex ".*\.(aux|bbl|bcf|blg|fdb_latexmk|fls|run.xml|synctex.gz|tdo|toc|log|hst|ver)$" -delete'
+alias CL='find . -regextype posix-egrep -regex ".*\.(aux|bbl|bcf|blg|fdb_latexmk|fls|run.xml|synctex.gz|tdo|toc|log|hst|ver|out)$" -delete'
 
 note() {
     dir=`pwd`

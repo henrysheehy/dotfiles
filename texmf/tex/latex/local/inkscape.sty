@@ -1,0 +1,23 @@
+\ProvidesPackage{inkscape}[2023/09/22 Henry's custom inkscape figures package]
+
+% Figures
+%% Inkscape figures
+\RequirePackage{import}
+\RequirePackage{pdfpages}
+\RequirePackage{transparent}
+\RequirePackage{xcolor}
+%% Absolute path:
+% \newcommand{\incfig}[1]{%
+%     \def\svgwidth{\columnwidth}
+%     \import{./}{#1.pdf_tex}
+% }
+
+% Relative path:
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+%% Supress warning (doesn't seem to be necessary)
+% \pdfsuppresswarningpagegroup=1
+
+\endinput

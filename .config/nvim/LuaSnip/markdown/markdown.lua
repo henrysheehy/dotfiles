@@ -32,6 +32,17 @@ return
         }
       )
     ),
+    -- LINK; CAPTURE URL IN VISUAL
+    s({trig="IIM", wordTrig=true, snippetType="autosnippet"},
+      fmt(
+        [[![{}]({} "{}")]],
+        {
+          i(1),
+          d(2, get_visual),
+          rep(1)
+        }
+      )
+    ),
     -- STRIKETHROUGH
     s({trig="tst", snippetType="autosnippet"},
       fmta(
@@ -42,7 +53,7 @@ return
       )
     ),
     -- BOLDFACE TEXT
-    s({trig="tbb", snippetType="autosnippet"},
+    s({trig="tbf", snippetType="autosnippet"},
       fmta(
         [[**<>**]],
         {
@@ -69,7 +80,7 @@ return
       )
     ),
     -- keys
-    s({trig="kk", snippetType="autosnippet"},
+    s({trig="tke", snippetType="autosnippet"},
       fmt(
         [[<kbd>{}</kbd>]],
         {
@@ -78,7 +89,7 @@ return
       )
     ),
     -- YouTube embedded; capture URL in visual
-    s({trig="YT", wordTrig=true, snippetType="autosnippet"},
+    s({trig="tyt", wordTrig=true, snippetType="autosnippet"},
       fmta(
         [[[![Watch the video](https://img.youtube.com/vi/<>/default.jpg)](https://youtu.be/<>)]],
         {

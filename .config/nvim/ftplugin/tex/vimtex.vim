@@ -196,4 +196,4 @@ map ]* <plug>(vimtex-]star
 map [/ <plug>(vimtex-[/
 map [* <plug>(vimtex-[star
 
-noremap <leader>p <Cmd>update<CR><Cmd>TermExec cmd="pythontex %"<CR>
+noremap <leader>p <Cmd>update<CR><Cmd>TermExec cmd='pythontex $(grep -lRnw . -e \documentclass)'<CR>

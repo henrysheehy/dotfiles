@@ -45,6 +45,20 @@ return
       ),
       { condition = line_begin }
     ),
+    -- pyblock
+    s({trig="pyb", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{pyblock}
+            <>
+        \end{pyblock}
+      ]],
+        {
+          d(1, get_visual)
+        }
+      ),
+      {condition = line_begin}
+    ),
     -- ENVIRONMENT WITH TWO EXTRA ARGUMENTS
     s({trig="n3", snippetType="autosnippet"},
       fmta(
@@ -79,8 +93,23 @@ return
       ),
       { condition = line_begin }
     ),
+    -- NUMBERED EQNARRAY
+    s({trig="nar", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{eqnarray} \label{eq:<>}
+            <>
+        \end{eqnarray}
+      ]],
+        {
+          i(1),
+          i(2),
+        }
+      ),
+      { condition = line_begin }
+    ),
     -- EQNARRAY
-    s({trig="eqn", snippetType="autosnippet"},
+    s({trig="ar", snippetType="autosnippet"},
       fmta(
         [[
         \begin{eqnarray}
@@ -94,48 +123,48 @@ return
       { condition = line_begin }
     ),
     -- EQUATION
-    s({trig="equ", snippetType="autosnippet"},
+    s({trig="eq", snippetType="autosnippet"},
       fmta(
         [[
-        \begin{equation}
+        \begin{equation*}
+            <>
+        \end{equation*}
+      ]],
+        {
+          i(1),
+        }
+      ),
+      { condition = line_begin }
+    ),
+    -- NUMBERED EQUATION
+    s({trig="neq", snippetType="autosnippet"},
+      fmta(
+        [[
+        \begin{equation} \label{eq:<>}
             <>
         \end{equation}
       ]],
         {
           i(1),
-        }
-      ),
-      { condition = line_begin }
-    ),
-    -- EQUATION
-    s({trig="nn", snippetType="autosnippet"},
-      fmta(
-        [[
-        \begin{equation*}
-            <>
-        \end{equation*}
-      ]],
-        {
-          i(1),
+          i(2),
         }
       ),
       { condition = line_begin }
     ),
     -- SPLIT EQUATION
-    s({trig="ss", snippetType="autosnippet"},
+    s({trig="se"},
       fmta(
         [[
-        \begin{equation*}
             \begin{split}
-                <>
+                <> 
+                \\
             \end{split}
-        \end{equation*}
       ]],
         {
           d(1, get_visual),
         }
-      ),
-      { condition = line_begin }
+        ),
+      { }
     ),
     -- ALIGN
     s({trig="all", snippetType="autosnippet"},
@@ -144,7 +173,7 @@ return
         \begin{align*}
             <>
         \end{align*}
-      ]],
+        ]],
         {
           i(1),
         }

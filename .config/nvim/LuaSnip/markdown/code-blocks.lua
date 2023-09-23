@@ -121,4 +121,19 @@ return
       ),
       {condition = line_begin}
     ),
+    -- LaTeX
+    s({trig="tex"},
+      fmt(
+        [[
+        ```latex
+        {}
+        ```
+        ]],
+        {
+          d(1, get_visual)
+        }
+      ),
+      {condition = line_begin}
+    ),
+    -- JAVASCRIPT CODE BLOCK
   }

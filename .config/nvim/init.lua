@@ -20,9 +20,6 @@ vim.opt.signcolumn   = "no"   -- disable LSP diagnostic symbols in left column
 vim.g.vmt_auto_update_on_save = 1 -- Toc updates
 vim.opt.clipboard=unnamedplus
 
-vim.opt.spelllang="en_gb,fr,sp,ru,ch"
-vim.keymap.set('', '<C-s>', '<Esc>[s1z=<C-o>', { silent = true })
-
 vim.keymap.set('', '<Space>', '<NOP>')
 vim.g.mapleader = " "  -- set global leader key
 
@@ -105,6 +102,8 @@ Plug 'VonHeikemen/lsp-zero.nvim'
 
 -- Filetype-specific
 Plug('iamcco/markdown-preview.nvim', {['do'] = 'cd app && yarn install'})
+Plug('godlygeek/tabular')
+Plug('preservim/vim-markdown')
 -- Plug 'mzlogin/vim-markdown-toc'
 Plug 'SidOfc/mkdx'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -112,6 +111,9 @@ Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'lervag/vimtex'
 Plug 'pocco81/auto-save.nvim'
 -- Plug 'Konfekt/FastFold'
+
+-- Translation
+Plug 'kraftwerk28/gtranslate.nvim'
 
 -- LSP-like
 Plug 'nvim-lua/plenary.nvim'
@@ -334,6 +336,10 @@ cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
 )
+
+-- Open snippets
+
+vim.keymap.set('', '<Leader><S-s>', '<Cmd>:new $HOME/.config/nvim/LuaSnip/<CR>')
 
 -- BEGIN :
 -- Pythontex and Minted

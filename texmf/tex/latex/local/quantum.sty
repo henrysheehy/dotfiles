@@ -1,0 +1,115 @@
+\ProvidesPackage{quantum}[2023/09/22 Henry's custom quantum package]
+
+%% Dirac notation
+\RequirePackage{braket}
+%% Conditionals (if then)
+\RequirePackage{xparse}
+
+% ========================= %
+% ======== Commands ======= %
+% ========================= %
+
+% Solid state
+% ===========
+% Spin
+\newcommand{\spins}{\{\uparrow,\downarrow\}}
+% Brillouin zone
+\newcommand{\bz}{\sum_{\bk\in\text{BZ}}}
+% Bold symbols
+\newcommand{\bk}{\bm{k}}
+\newcommand{\bi}{\bm{i}}
+\newcommand{\bj}{\bm{j}}
+% \newcommand{\n}[1]{\hat{n}_{#1}}
+% Dispersion
+\newcommand{\ek}{\epsilon_{\bk}}
+
+% Second-quantisation
+% ===================
+% Creation/annihilation operators
+% --------------------------------
+% Normal fermions
+\newcommand{\create}[1]{\hat{c}^\dagger_{#1}}
+\newcommand{\annihilate}[1]{\hat{c}_{#1}}
+% Spin fermions
+\newcommand{\cU}[1]{\create{\uparrow,#1}} 
+\newcommand{\cD}[1]{\create{\downarrow,#1}}
+\newcommand{\aU}[1]{\annihilate{\uparrow,#1}}
+\newcommand{\aD}[1]{\annihilate{\downarrow,#1}}
+% Cooper pairs
+\newcommand{\cSinglet}[1]{\cU{#1}\cD{#1}}
+\newcommand{\aSinglet}[1]{\aD{#1}\aU{#1}}
+\newcommand{\cTriplet}[1]{\create{\sigma,+,#1}\create{\sigma,-,#1}}
+\newcommand{\aTriplet}[1]{\annihilate{\sigma,-,#1}\annihilate{\sigma,+,#1}}
+\newcommand{\cUpTriplet}[1]{\create{\uparrow,+,#1}\create{\uparrow,-,#1}}
+\newcommand{\cDownTriplet}[1]{\create{\downarrow,+,#1}\create{\downarrow,-,#1}}
+\newcommand{\aUpTriplet}[1]{\annihilate{\uparrow,-,#1}\annihilate{\uparrow,+,#1}}
+\newcommand{\aDownTriplet}[1]{\annihilate{\downarrow,-,#1}\annihilate{\downarrow,+,#1}}
+\newcommand{\cSpatialTriplet}[1]{\create{\sigma,#1,\bi}\create{\sigma,#1,\bj}}
+\newcommand{\aSpatialTriplet}[1]{\annihilate{\sigma,#1,\bj}\annihilate{\sigma,#1,\bi}}
+
+% Operators
+% =========
+% Number operator
+\newcommand{\numop}[1]{\hat{n}_{\sigma,#1}}
+
+% Hamiltonians
+% ============
+% General Hamiltonians
+% --------------------
+\newcommand{\hamiltonian}[1]{\hat{\mathcal{H}}_{#1}}
+% Normal conductor
+% ----------------
+\newcommand{\normal}{\text{N}}
+\newcommand{\kinetic}[1]{
+    -\mu_{\parse{#1}} \Σ{σ}\Σ{#1} \left[ \numop{\bi} \right]
+    -t_{\parse{#1}} \Σ{σ}\Σ{nn} \hopping{\bi}{\bj}
+    }
+% Tunnelling
+% ----------
+%% Nearest-neighbours
+\newcommand{\neighbours}[1]{\varsigma(#1)}
+%% Hopping
+\newcommand{\hop}[2]{\create{\sigma,#1}\annihilate{\sigma,#2}}
+\newcommand{\poh}[2]{\create{\sigma,#2}\annihilate{\sigma,#1}}
+\newcommand{\hopping}[2]{\left[ \hop{#1}{#2} + \poh{#1}{#2} \right] }
+%% Tunnelling Hamiltonian
+%%% Notation
+\newcommand{\tunnellingHamiltonian}[2]{\hat{\mathcal{T}}_{#1\leftrightarrow #2}}
+%%% Equation
+\newcommand{\transferMatrix}[1]{\Σ{σ}\Σ{#1} \hopping{\bi}{\bj} }
+% Superconductor
+% --------------
+\newcommand{\SC}{\text{S}}
+% Insulator
+\newcommand{\insulator}{\mathnormal{I}}
+% Interaction
+% -----------
+% Singlet
+\newcommand{\singletInteraction}[1]{\left[\cSinglet{#1}\aSinglet{#1}\right]}
+% Triplet
+\newcommand{\tripletInteraction}[1]{\left[\cTriplet{#1}\aTriplet{#1}\right]}
+
+% Index and bounds
+% ----------------
+% Populate a manifold
+\newcommand{\boundManifold}[1]{\bi\in\manifold{#1}}
+% Nearest-neighbours hopping within a manifold
+\newcommand{\hopManifold}[1]{
+\substack{
+\bi,\bj\in\manifold{#1}:\\
+\bj\in\neighbours{\bi}}
+}
+% Nearest-neighbours hopping between manifolds
+\newcommand{\hopManifolds}[2]{
+\substack{
+    \bi\in\manifold{#1},\\
+\bj\in\manifold{#2}:\\
+\bj\in\neighbours{\bi}}
+}
+
+% Geometry
+% ========
+\newcommand{\manifold}[1]{\mathnormal{M}(#1)}
+\newcommand{\squareInterval}[1]{[-L/2,L/2]\times[-L/2,L/2]}
+
+\endinput

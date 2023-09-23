@@ -470,7 +470,7 @@ return
     {condition = tex.in_mathzone}
   ),
   -- INTEGRAL
-  s({trig = "\\int", wordTrig = false, regTrig = true, snippetType="autosnippet"},
+  s({trig = "\\int", wordTrig = false, regTrig = true}, --, snippetType="autosnippet"},
     fmta(
       "\\int\\text{d}{<>}<>",
       {

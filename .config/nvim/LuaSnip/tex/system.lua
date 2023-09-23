@@ -17,17 +17,17 @@ tex.in_text = function() return not tex.in_mathzone() end
 return
   {
     -- ANNOTATE (custom command for annotating equation derivations)
-    s({trig = "ann", snippetType="autosnippet"},
-      fmta(
-        [[
-      \annotate{<>}{<>}
-      ]],
-        {
-          i(1),
-          d(2, get_visual),
-        }
-      )
-    ),
+    -- s({trig = "ann", snippetType="autosnippet"},
+    --   fmta(
+    --     [[
+    --   \annotate{<>}{<>}
+    --   ]],
+    --     {
+    --       i(1),
+    --       d(2, get_visual),
+    --     }
+    --   )
+    -- ),
     -- REFERENCE
     s({trig = " RR", snippetType="autosnippet", wordTrig=false},
       fmta(
@@ -98,8 +98,19 @@ return
       fmta(
         [[\newcommand{<>}{<>}]],
         {
-          i(1),
+          d(1, get_visual),
           i(2)
+        }
+      ),
+      {condition = line_begin}
+    ),
+    s({trig="nac"},
+      fmta(
+        [[\newcommand{<>}[<>]{<>}]],
+        {
+          d(1, get_visual),
+          i(2),
+          i(3)
         }
       ),
       {condition = line_begin}
@@ -139,9 +150,20 @@ return
       )
     ),
     -- SECTION
+    s({trig="chh", snippetType="autosnippet"},
+      fmta(
+        [[\chapter{<>}
+        \label{ch:}]],
+        {
+          d(1, get_visual),
+        }
+      )
+    ),
+    -- SECTION
     s({trig="h1", snippetType="autosnippet"},
       fmta(
-        [[\section{<>}]],
+        [[\section{<>}
+        \label{sec:}]],
         {
           d(1, get_visual),
         }
