@@ -13,7 +13,7 @@ function M.get_ISO_8601_time()
 end
 
 function M.get_ISO_8601_date_time()
-  return os.date("%Y-%m-%d %H:%M:%S%z")
+  return os.date("%Y-%m-%dT%H:%M:%S%z")
 end
 
 function M.get_journal_date_time()
