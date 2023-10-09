@@ -20,6 +20,14 @@ vim.opt.signcolumn   = "no"   -- disable LSP diagnostic symbols in left column
 vim.g.vmt_auto_update_on_save = 1 -- Toc updates
 vim.opt.clipboard=unnamedplus
 
+vim.cmd[[
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+]]
+
 vim.keymap.set('', '<Space>', '<NOP>')
 vim.g.mapleader = " "  -- set global leader key
 
@@ -311,19 +319,6 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 -- fzf - replaced with telescope
 -- vim.keymap.set('', '<C-b>', '<Cmd>:Buffers<CR>')
 -- vim.keymap.set('', '<C-s>', '<Cmd>:Files<CR>')
-
--- Markdown
-vim.cmd([[
-let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
-                        \ 'enter': { 'shift': 1 },
-                        \ 'links': { 'external': { 'enable': 1 } },
-                        \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
-                        \ 'fold': { 'enable': 1 } }
-let g:polyglot_disabled = ['markdown'] " for vim-polyglot users, it loads Plasticboy's markdown
-                                       " plugin which unfortunately interferes with mkdx list indentation.
-                                       ]])
-
--- END MISCELLANEOUS
 
 -- LSP config
 require('lsp/lsp')

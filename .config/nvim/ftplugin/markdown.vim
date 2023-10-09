@@ -95,10 +95,23 @@ let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 set conceallevel=2
-let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_folding_disabled = 1
 
 " Inkscape
 nnoremap <C-f> :silent exec '.!~/.script/inkscape-vim/ink.py %:p:h "'.getline(".").'"'<CR><CR>
 
 " Markdown Preview
 let g:mkdp_theme = 'light'
+
+let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
+                        \ 'enter': { 'shift': 0 },
+                        \ 'links': { 'external': { 'enable': 1 } },
+                        \ 'fold': { 'enable': 1 } }
+let g:polyglot_disabled = ['markdown'] " for vim-polyglot users, it loads Plasticboy's markdown
+                                       " plugin which unfortunately interferes with mkdx list indentation.
+
+                                       let g:vim_markdown_new_list_item_indent = 0
+
+" Delete these two lines:
+" setlocal formatoptions=tqlnrc
+" set comments=b:> 
