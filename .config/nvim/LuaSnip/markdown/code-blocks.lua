@@ -121,6 +121,34 @@ return
       ),
       {condition = line_begin}
     ),
+    -- C
+    s({trig="c"},
+      fmt(
+        [[
+        ```c
+        {}
+        ```
+        ]],
+        {
+          d(1, get_visual)
+        }
+      ),
+      {condition = line_begin}
+    ),
+    -- C++
+    s({trig="cpp"},
+      fmt(
+        [[
+        ```cpp
+        {}
+        ```
+        ]],
+        {
+          d(1, get_visual)
+        }
+      ),
+      {condition = line_begin}
+    ),
     -- LaTeX
     s({trig="tex"},
       fmt(

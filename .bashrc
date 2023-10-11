@@ -148,3 +148,6 @@ fi
 export PASSWORD_STORE_DIR="/vault/Secure/.pass/"
 export GNUPGHOME="/vault/Secure/.gnupg/"
 export UserKnownHostsFile="/vault/Secure/.ssh/config/known_hosts.d/"
+
+# export ARDUINO_DIR=/home/hjs/apps/arduino-1.0.5
+# export AVR_TOOLS_DIR=/usr/include

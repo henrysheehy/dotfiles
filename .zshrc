@@ -403,3 +403,7 @@ export PASSWORD_STORE_DIR="/vault/Secure/.pass/"
 export GNUPGHOME="/vault/Secure/.gnupg/"
 export UserKnownHostsFile="/vault/Secure/.ssh/config/known_hosts.d/"
 export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
+
+export ARDMK="$HOME/.config/arduino/Makefile"
+
+alias ac="arduino-cli"
