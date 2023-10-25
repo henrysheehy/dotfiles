@@ -39,7 +39,17 @@ require'lspconfig'.texlab.setup{}
 require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.yamlls.setup{}
 require'lspconfig'.zk.setup{}
+require'lspconfig'.cssmodules_ls.setup{}
+require'lspconfig'.fortls.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.nginx_language_server.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.vimls.setup{}
+require'lspconfig'.arduino_language_server.setup{}
+require'lspconfig'.phpactor.setup{}
+require'lspconfig'.java_language_server.setup{}
 
+vim.lsp.set_log_level("debug")
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -76,7 +86,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
-
 
 
 --AUTO-COMPLETION
@@ -158,6 +167,4 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-
-
 

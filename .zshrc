@@ -399,11 +399,20 @@ source "/usr/share/zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PASSWORD_STORE_DIR="/vault/Secure/.pass/"
-export GNUPGHOME="/vault/Secure/.gnupg/"
-export UserKnownHostsFile="/vault/Secure/.ssh/config/known_hosts.d/"
+if [ -n "/vault/Secure" ] ; then
+  export PASSWORD_STORE_DIR="/vault/Secure/.pass/"
+  export GNUPGHOME="/vault/Secure/.gnupg/"
+  export UserKnownHostsFile="/vault/Secure/.ssh/config/known_hosts.d/"
+fi
+
 export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 
 export ARDMK="$HOME/.config/arduino/Makefile"
 
 alias ac="arduino-cli"
+
+# if [ -n "/opt/cuda/magma/" ] ; then
+#     export LD_LIBRARY_PATH="/opt/cuda/magma/:$LD_LIBRARY_PATH"
+# fi
+
+LD_LIBRARY_PATH="/opt/cuda/"

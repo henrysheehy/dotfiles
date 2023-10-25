@@ -21,18 +21,18 @@ return
       {condition = line_begin}
     ),
     -- MAIN FUNCTION
-    s({trig="main", snippetType="autosnippet"},
-      fmta(
-        [[
-      if __name__ == "__main__":
-          <>
-      ]],
-        {
-          d(1, get_visual),
-        }
-      ),
-      {condition = line_begin}
-    ),
+    -- s({trig="main", snippetType="autosnippet"},
+    --   fmta(
+    --     [[
+    --   if __name__ == "__main__":
+    --       <>
+    --   ]],
+    --     {
+    --       d(1, get_visual),
+    --     }
+    --   ),
+      -- {condition = line_begin}
+    -- ),
     -- CLASS
     s({trig="class"},
       fmta(
