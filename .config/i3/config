@@ -284,8 +284,8 @@ mode "resize" {
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
@@ -312,7 +312,7 @@ gaps outer 60
 
 # Screen
 exec --no-startup-id autorandr
-exec --no-startup-id xrandr --output HDMI-0 --primary --mode 3840x2160 --rate 60.00 --output DP-0 --mode 3840x2160 --rate 60.00 --right-of HDMI-0
+exec --no-startup-id xrandr --output HDMI-0 --rotate "inverted" --primary --mode 3840x2160 --rate 60.00 --output DP-0 --mode 3840x2160 --rate 60.00 --right-of HDMI-0 --rotate "inverted"
 
 # Polybar
 exec --no-startup-id i3-agenda -c $HOME/.i3agenda/credentials.json 
@@ -384,7 +384,8 @@ exec --no-startup-id picom
 # # No sleep
 # exec --no-startup-id xset dpms 0 0 2000
 
-exec --no-startup-id setxkbmap -option 'lv3:alt_switch,grp:rwin_toggle' -layout 'user,ru' -variant 'intl,phonetic_winkeys'
+exec --no-startup-id setxkbmap -option 'lv3:menu_switch,grp:rctrl_toggle' -layout 'user,ru' -variant 'intl,phonetic_winkeys'
+
 # exec --no-startup-id systemctl enable udevmon; exec --no-startup-id systemctl start udevmon
 # bindsym $mod+m exec --no-startup-id bash ~/.config/i3/scripts/keyboard.sh
 

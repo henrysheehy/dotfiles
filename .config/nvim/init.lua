@@ -12,13 +12,13 @@ vim.opt.autowriteall = true   -- write current buffer when moving buffers
 vim.opt.wrap         = true   -- wrap long lines
 vim.opt.linebreak    = true   -- break lines at words
 vim.opt.signcolumn   = "no"   -- disable LSP diagnostic symbols in left column
+vim.opt.autochdir = true
 -- vim.g.loaded_netrw       = 1 -- disable netrw
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.ranger_map_keys = 0 --disable <Leader>f :Ranger<CR>
 -- vim.g.NERDTreeHijackNetrw = 0
 -- vim.g.ranger_replace_netrw = 1 --open ranger when vim open a directory
 vim.g.vmt_auto_update_on_save = 1 -- Toc updates
-vim.opt.clipboard=unnamedplus
 
 vim.cmd[[
 augroup remember_folds
@@ -133,6 +133,9 @@ Plug 'nvim-treesitter/playground'
 -- Plug 'williamboman/mason.nvim'
 -- Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+
+-- Firefox
+Plug 'glacambre/firenvim'
 
 -- Local plugins
 Plug '~/.config/nvim/personal/vim-mpv'
@@ -335,6 +338,9 @@ cmp.event:on(
 -- Open snippets
 
 vim.keymap.set('', '<Leader><S-s>', '<Cmd>:new $HOME/.config/nvim/LuaSnip/<CR>')
+
+vim.keymap.set('', '<F8>', '<C-i>')
+vim.keymap.set('', '<F9>', '<C-m>')
 
 -- BEGIN :
 -- Pythontex and Minted

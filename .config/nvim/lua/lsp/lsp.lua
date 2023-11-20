@@ -48,6 +48,7 @@ require'lspconfig'.vimls.setup{}
 require'lspconfig'.arduino_language_server.setup{}
 require'lspconfig'.phpactor.setup{}
 require'lspconfig'.java_language_server.setup{}
+require'lspconfig'.mutt_ls.setup{}
 
 vim.lsp.set_log_level("debug")
 
@@ -110,7 +111,8 @@ cmp.setup({
       ['jk'] = cmp.mapping.confirm({select = true}),
     },
   sources = cmp.config.sources({
-    { name = 'path' },
+     { name = "cmdline" },
+     { name = 'path' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'buffer' },
@@ -125,34 +127,6 @@ cmp.setup.filetype('gitcommit', {
     { name = 'buffer' },
   })
 })
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
--- `/` cmdline setup.
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'path' },
-    { name = 'buffer' },
-    { name = 'cmdline' },
-  }
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    {
-      name = 'cmdline',
-      option = {
-        ignore_cmds = { 'Man', '!' }
-      }
-    }
-  })
-})
-
-
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()

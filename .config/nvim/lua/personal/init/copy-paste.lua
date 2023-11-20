@@ -18,3 +18,7 @@ vim.keymap.set('n', 'X', '"_X')
 
 -- Paste in visual mode without overwriting default register
 vim.keymap.set('v', 'p', 'P')
+
+
+vim.keymap.set('n', '<leader>Y', '"+y')
+vim.keymap.set('n', '<leader>P', '"+p')

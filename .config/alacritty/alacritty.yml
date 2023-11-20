@@ -80,6 +80,8 @@ shell:
 working_directory: None
 
 # key_bindings:
+  # - {key: Tab, mods: Control, chars: "\x1b[27;5;9~"}
+  # - {key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~"}
 #   - { key: Left,     mods: Control, chars: "^[[1;2C"                       }
 #   - { key: Right,    mods: Control, chars: "^[[1;2D"                       }
   # - { key: J,        mods: Control|Shift, chars: "\x1b[74;5u"            }
