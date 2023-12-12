@@ -17,6 +17,8 @@ DIST=/vault/Distro
 VIDEO=/vault/Videos
 WORK=/vault/Workshops
 MAIL=/vault/Mail
+WEB=/vault/Web
+TEACH=/vault/Teaching
 
 CONF=~/.config
 SCRIPT=~/.script

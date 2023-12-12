@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.vim,*.vifm set filetype=vim
+au BufNewFile, BufRead *.vim, *.vifm set filetype=vim

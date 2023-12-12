@@ -107,7 +107,34 @@ alias gu="git reset HEAD~"
 alias gp="git push"
 alias gpull="git pull"
 
-alias v="nvim"
+compdef config=git 
+
+function v() {
+  if [[ "$1" == "-S" ]]
+  then
+    # Find session file:
+    conf=~/.config/nvim/sessions/$2
+    # Extract project path:
+    dir=$(tail -n 1 $conf)
+    dir="${dir:2}"
+    # Change to project dir and open session
+    cd $dir
+    nvim -S $conf
+  else
+    nvim $1
+  fi 
+}
+
+function _v() { 
+  local -a args
+  args+=(
+  '1:files:_path_files .'
+  '2:sessions:_path_files -W ~/.config/nvim/sessions/ -g "*(.)"'
+  )
+  _arguments $args[@] }
+
+compdef _v v
+
 alias y="yay -Syu --noconfirm"
 
 function ga() {
@@ -220,7 +247,8 @@ alias A="ranger $ART"
 alias D="ranger $DOCS"
 # alias DI="ranger $DIST"
 # alias VI="ranger $VIDEO" 
-alias W="ranger $WORK"
+alias W="ranger $WEB"
+alias T="ranger $TEACH"
 alias C="ranger $CONF"
 alias S="ranger $SNIP"
 alias V="nvim $INIT"

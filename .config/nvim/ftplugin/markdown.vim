@@ -106,7 +106,8 @@ let g:mkdp_theme = 'light'
 let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
                         \ 'enter': { 'shift': 0 },
                         \ 'links': { 'external': { 'enable': 1 } },
-                        \ 'fold': { 'enable': 1 } }
+                        \ 'fold': { 'enable': 0 },
+                        \ 'tab': {'enable':0}}
 let g:polyglot_disabled = ['markdown'] " for vim-polyglot users, it loads Plasticboy's markdown
                                        " plugin which unfortunately interferes with mkdx list indentation.
 

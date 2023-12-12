@@ -1,35 +1,37 @@
 -- Basic configuration settings -----------------------------------------------
-vim.opt.number       = true   -- show line numbers
-vim.opt.cursorline   = true   -- highlight current line
-vim.opt.ruler        = true	  -- shows cursor position in current line
-vim.opt.showcmd      = true	  -- shows partially typed commands
-vim.opt.hlsearch     = false -- don't highlight search results
-vim.opt.incsearch    = false  -- don't jump to search results as search string is being typed
-vim.opt.showmode     = false  -- disable in favor of lualine/lightline statusline
-vim.opt.foldenable   = true  -- fold text by default when opening files
-vim.opt.foldmethod   = "marker"
-vim.opt.autowriteall = true   -- write current buffer when moving buffers
-vim.opt.wrap         = true   -- wrap long lines
-vim.opt.linebreak    = true   -- break lines at words
-vim.opt.signcolumn   = "no"   -- disable LSP diagnostic symbols in left column
-vim.opt.autochdir = true
--- vim.g.loaded_netrw       = 1 -- disable netrw
--- vim.g.loaded_netrwPlugin = 1
--- vim.g.ranger_map_keys = 0 --disable <Leader>f :Ranger<CR>
--- vim.g.NERDTreeHijackNetrw = 0
--- vim.g.ranger_replace_netrw = 1 --open ranger when vim open a directory
+vim.opt.number                = true -- show line numbers
+vim.opt.cursorline            = true -- highlight current line
+vim.opt.ruler                 = true -- shows cursor position in current line
+vim.opt.showcmd               = true -- shows partially typed commands
+vim.opt.hlsearch              = false -- don't highlight search results
+vim.opt.incsearch             = false -- don't jump to search results as search string is being typed
+vim.opt.showmode              = false -- disable in favor of lualine/lightline statusline
+vim.opt.foldenable            = true -- fold text by default when opening files
+vim.opt.foldmethod            = "marker"
+vim.opt.autowriteall          = true -- write current buffer when moving buffers
+vim.opt.wrap                  = true -- wrap long lines
+vim.opt.linebreak             = true -- break lines at words
+vim.opt.signcolumn            = "no" -- disable LSP diagnostic symbols in left column
+vim.opt.autochdir             = false
+vim.g.loaded_netrw            = 1 -- disable netrw
+vim.g.loaded_netrwPlugin      = 1
+vim.g.ranger_map_keys         = 0 --disable <Leader>f :Ranger<CR>
+vim.g.NERDTreeHijackNetrw     = 0
+vim.g.ranger_replace_netrw    = 1 --open ranger when vim open a directory
 vim.g.vmt_auto_update_on_save = 1 -- Toc updates
+-- vim.g.vimhome = vim.fn.expand('<sfile>:p:h:h')
+-- vim.g.sessionoptions = vim.g.vimhome .. "sessions/"
 
-vim.cmd[[
+vim.cmd [[
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
+  autocmd BufWinLeave,BufLeave,BufWritePost,BufHidden,QuitPre ?* nested silent! mkview!
+  autocmd BufWinEnter ?* silent! loadview
 augroup END
 ]]
 
 vim.keymap.set('', '<Space>', '<NOP>')
-vim.g.mapleader = " "  -- set global leader key
+vim.g.mapleader = " " -- set global leader key
 
 if vim.fn.has('termguicolors') == 1 then
   vim.opt.termguicolors = true
@@ -38,7 +40,7 @@ end
 -- Persistent undo https://www.adrian.idv.hk/2022-05-07-nvim-lua/
 -- vim.opt.undodir = vim.fn.stdpath('config') .. '/.undo'
 vim.opt.undodir:prepend(os.getenv("HOME") .. "/.config/nvim/.undo//")
--- vim.opt.undofile 
+-- vim.opt.undofile
 vim.opt.undofile = true
 
 -- OS detection
@@ -73,7 +75,7 @@ Plug 'ggandor/leap.nvim'
 Plug 'ggandor/flit.nvim'
 Plug 'ggandor/leap-spooky.nvim'
 Plug 'tpope/vim-commentary'
-Plug('kylechui/nvim-surround', {tag = '*'})
+Plug('kylechui/nvim-surround', { tag = '*' })
 Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'coachshea/vim-textobj-markdown'
@@ -91,9 +93,9 @@ Plug 'jedrzejboczar/toggletasks.nvim'
 Plug 'airblade/vim-rooter'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'brenoprata10/nvim-highlight-colors' --Displays colors based on their HEX/rgb/hsl value
-Plug 'rbgrouleff/bclose.vim' -- ranger.vim dependency
-Plug 'francoiscabrol/ranger.vim' 
-Plug 'nvim-tree/nvim-web-devicons' -- optional, for file icons
+Plug 'rbgrouleff/bclose.vim'              -- ranger.vim dependency
+Plug 'francoiscabrol/ranger.vim'
+Plug 'nvim-tree/nvim-web-devicons'        -- optional, for file icons
 Plug 'vim-voom/voom'
 Plug 'windwp/nvim-autopairs'
 Plug 'max397574/better-escape.nvim'
@@ -109,7 +111,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'VonHeikemen/lsp-zero.nvim'
 
 -- Filetype-specific
-Plug('iamcco/markdown-preview.nvim', {['do'] = 'cd app && yarn install'})
+Plug('iamcco/markdown-preview.nvim', { ['do'] = 'cd app && yarn install' })
 Plug('godlygeek/tabular')
 Plug('preservim/vim-markdown')
 -- Plug 'mzlogin/vim-markdown-toc'
@@ -125,9 +127,11 @@ Plug 'kraftwerk28/gtranslate.nvim'
 
 -- LSP-like
 Plug 'nvim-lua/plenary.nvim'
-Plug('nvim-telescope/telescope.nvim', {['tag'] = '0.1.0'})
-Plug 'RRethy/vim-illuminate'
-Plug('nvim-Treesitter/nvim-Treesitter', {['do'] = ':TSUpdate'})
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.0' })
+Plug('BurntSushi/ripgrep')
+Plug('sharkdp/fd')
+Plug('RRethy/vim-illuminate')
+Plug('nvim-Treesitter/nvim-Treesitter', { ['do'] = ':TSUpdate' })
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/playground'
 -- Plug 'williamboman/mason.nvim'
@@ -152,7 +156,6 @@ require('personal/init/copy-paste')
 require('personal/init/navigation')
 require('personal/init/indent')
 require('personal/init/insert-mode')
-require('personal/init/projects')
 
 -- Plugin configuration
 require('plugins/auto-save')
@@ -176,10 +179,10 @@ require('nvim-highlight-colors').setup {}
 -- local server_opts = {}
 -- require("lspconfig").omnisharp.setup(server_opts)
 require("better_escape").setup {
-  mapping ={"jj"},  
+  mapping = { "jj" },
   timeout = vim.o.timeoutlen,
-  clear_empty_lines = false,  
-  keys = "<Esc>"} 
+  clear_empty_lines = false,
+  keys = "<Esc>" }
 
 -- BEGIN MISCELLANEOUS
 -- --------------------------------------------- "
@@ -205,17 +208,17 @@ vim.keymap.set('n', '<Leader>g', ':Git ')
 -- Rough analog of `:join` or `J` for lines above cursor
 vim.keymap.set('n', 'K', 'kdd$')
 
--- Move current line up and down
--- See https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
-vim.keymap.set('n', '<C-Up>', '<Cmd>move .-2<CR>')
-vim.keymap.set('n', '<C-Down>', '<Cmd>move .+1<CR>')
+-- -- Move current line up and down
+-- -- See https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
+-- vim.keymap.set('n', '<C-Up>', '<Cmd>move .-2<CR>')
+-- vim.keymap.set('n', '<C-Down>', '<Cmd>move .+1<CR>')
 
--- Move selected lines up and down
--- See https://stackoverflow.com/questions/41084565/moving-multiple-lines-in-vim-visual-mode
-vim.cmd([[
-xnoremap <C-Down> :m'>+<CR>gv=gv
-xnoremap <C-Up>  :m-2<CR>gv=gv
-]])
+-- -- Move selected lines up and down
+-- -- See https://stackoverflow.com/questions/41084565/moving-multiple-lines-in-vim-visual-mode
+-- vim.cmd([[
+-- xnoremap <C-Down> :m'>+<CR>gv=gv
+-- xnoremap <C-Up>  :m-2<CR>gv=gv
+-- ]])
 
 -- Global substitute
 vim.keymap.set('n', '<Leader>s', ':%s/')
@@ -239,19 +242,21 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Go to last loc when opening a buffer
 vim.api.nvim_create_autocmd(
-    "BufReadPost",
-    { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
-  )
+  "BufReadPost",
+  { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
+)
 
 -- Write and quit if possible/applicable, force quit otherwise
 vim.keymap.set('n', '<Leader>q',
   function()
-    local success, result = pcall(vim.cmd, 'wq')
+    local success, result = pcall(vim.cmd, 'wa|call MakeSession() | qa')
     if not success then
-      vim.cmd('q!')
+      vim.cmd('wa!|call MakeSession() | qa!')
     end
   end,
-  {desc = 'Write and quit if possible/applicable, force quit otherwise.'})
+  { desc = 'Write and quit if possible/applicable, force quit otherwise.' })
+vim.g.bclose_multiple = 0
+vim.opt.switchbuf = 'useopen'
 
 -- Open link under cursor
 -- vim.cmd([[
@@ -281,7 +286,7 @@ require('personal/spell/my_spell')
 
 -- Use `d` (delimiter) for targets.vim block text objects
 -- (Requires targets.vim)
-vim.cmd[[
+vim.cmd [[
 autocmd User targets#mappings#user call targets#mappings#extend({
     \ 'd': {'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}]},
     \ })
@@ -300,7 +305,8 @@ autocmd User targets#mappings#user call targets#mappings#extend({
 -- Highlight colours
 vim.keymap.set('', '<Leader>hc', '<Cmd>HighlightColorsToggle<CR>')
 
-vim.keymap.set('n', '<Leader>l', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')
+vim.keymap.set('n', '<Leader>l',
+  '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')
 
 -- vim.keymap.set('', '<Leader>r', '<Cmd>Ranger<CR>')
 
@@ -314,7 +320,7 @@ vim.keymap.set('', '<Shift-Up>', '<S-Up>')
 vim.keymap.set('', '<Shift-Right>', 'w')
 
 -- Inkscape
-vim.cmd[[
+vim.cmd [[
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 ]]
@@ -341,9 +347,50 @@ vim.keymap.set('', '<Leader><S-s>', '<Cmd>:new $HOME/.config/nvim/LuaSnip/<CR>')
 
 vim.keymap.set('', '<F8>', '<C-i>')
 vim.keymap.set('', '<F9>', '<C-m>')
+vim.keymap.set('', '<Leader>f', ':RangerNewTab<CR>')
+
+vim.keymap.set('', '<Leader>n', ':bnext<CR>')
+vim.keymap.set('', '<Leader>p', ':bprevious<CR>')
+vim.keymap.set('', '<Leader>d', ':bdelte<CR>')
+
 
 -- BEGIN :
 -- Pythontex and Minted
 -- Developed from https://evesdropper.dev/files/luasnip/conditions-minted/
 -- local ls = require("luasnip")
 -- END
+
+vim.cmd([[
+function! MakeSession()
+  let b:sessiondir = $HOME . '/.config/nvim/sessions/'
+  let b:filename = b:sessiondir . fnamemodify(getcwd(),':p:h:t') . '.vim'
+  exe "mksession! " . b:filename
+  exe '!echo \"' . " `pwd` >> " . b:filename 
+  exe "edit! " . b:filename
+  exe "g:^cd :d"
+  exe "x" 
+endfunction
+
+function! DeleteInactiveBufs()
+    "From tabpagebuflist() help, get a list of all buffers in all tabs
+    let tablist = []
+    for i in range(tabpagenr('$'))
+        call extend(tablist, tabpagebuflist(i + 1))
+    endfor
+
+    "Below originally inspired by Hara Krishna Dara and Keith Roberts
+    "http://tech.groups.yahoo.com/group/vim/message/56425
+    let nWipeouts = 0
+    for i in range(1, bufnr('$'))
+        if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
+        "bufno exists AND isn't modified AND isn't in the list of buffers open in windows and tabs
+            silent exec 'bwipeout' i
+            let nWipeouts = nWipeouts + 1
+        endif
+    endfor
+    echomsg nWipeouts . ' buffer(s) wiped out'
+endfunction
+command! Bdi :call DeleteInactiveBufs()
+]])
+
+

@@ -1,1 +1,1 @@
-autocmd! BufNewFile,BufRead *.lightspeed	set filetype=lightspeed
+autocmd! BufNewFile, BufRead *.lightspeed	set filetype=lightspeed
