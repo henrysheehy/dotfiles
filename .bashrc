@@ -153,3 +153,4 @@ fi
 
 # export ARDUINO_DIR=/home/hjs/apps/arduino-1.0.5
 # export AVR_TOOLS_DIR=/usr/include
+alias config='/usr/bin/git --git-dir=/home/hjs/dotfiles --work-tree=/home/hjs'
